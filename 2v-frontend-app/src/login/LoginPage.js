@@ -4,6 +4,9 @@ import { Container, Card, CardBody, Input, Button, Fa } from 'mdbreact';
 import  { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import Google from './GoogleLoginButton'
+import Facebook from './FaceLoginButton'
+
 export default class LoginPage extends Component {
     
     constructor(props) {
@@ -17,8 +20,7 @@ export default class LoginPage extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
-    
+        
     handleChange(event) {
         //copiar sempre o estado da aplicacao para nao alterar o original
         const state = Object.assign({}, this.state); //criando uma copia
@@ -52,7 +54,6 @@ export default class LoginPage extends Component {
     }
     
     render() {
-
         const estilo = {
             width: "100vw",
             height: "100vh",
@@ -93,8 +94,8 @@ export default class LoginPage extends Component {
                             <p style={{fontSize: "1.3rem"}} className="font-small dark-grey-text text-right d-flex justify-content-center"> or Sign in with:</p>
             
                             <div className="row my-3 d-flex justify-content-center">
-                                <Button size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a"><Fa icon="facebook" className="blue-text text-center" /></Button>
-                                <Button size="lg" type="button" color="white" rounded className="z-depth-1a"><Fa icon="google-plus" className="blue-text" /></Button>
+                                <Facebook/>
+                                <Google/>
                                 <Button size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a"><Fa icon="twitter" className="blue-text" /></Button>
                             </div>
                         </CardBody>
@@ -105,3 +106,5 @@ export default class LoginPage extends Component {
         }
     }
     
+
+    // 
