@@ -49,6 +49,7 @@ export default class CadastroPage extends Component {
         }
 
         axios(request).then((response) => {
+            window.alert('Usuario Cadastrado com sucesso. Volte para logar!')
             console.log(response);
         });
         
