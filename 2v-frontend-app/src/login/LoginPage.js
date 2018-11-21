@@ -48,11 +48,12 @@ export default class LoginPage extends Component {
         axios(request).then((response) => {
             //aqui eu faço a autenticação com a response
             //mudo de tela se tudo estiver ok
-            console.log(response.data.message);
-            window.alert(response.data.message);
+            console.log(response.data.status);
+            if (response.data.status === 404) window.alert(response.data.message);
+            else window.alert('Bem-vindo ' + response.data.data.name + '!');
         });
     }
-    
+
     render() {
         const estilo = {
             width: "100vw",
@@ -105,6 +106,3 @@ export default class LoginPage extends Component {
             );
         }
     }
-    
-
-    // 
