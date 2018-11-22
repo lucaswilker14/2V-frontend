@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Card, CardBody, Input, Button } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 'mdbreact';
 import  { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -49,8 +49,10 @@ export default class CadastroPage extends Component {
         }
 
         axios(request).then((response) => {
-            window.alert('Usuario Cadastrado com sucesso. Volte para logar!')
-            console.log(response);
+            toast.success(response.data.message);
+        }).catch((err) => {
+            console.log(err);
+            toast.error('Impossível Cadastrar!')
         });
         
     }
@@ -96,6 +98,20 @@ export default class CadastroPage extends Component {
                         </form>
                     </CardBody>
                 </Card>
+
+                <ToastContainer
+                    style={{fontSize: "medium"}}
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar 
+                    closeButton={false} 
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
+
             </Container>   
             
             )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Container, Card, CardBody, Input, Button, Fa } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, Fa, toast, ToastContainer } from 'mdbreact';
 import  { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -48,9 +48,8 @@ export default class LoginPage extends Component {
         axios(request).then((response) => {
             //aqui eu faço a autenticação com a response
             //mudo de tela se tudo estiver ok
-            console.log(response.data.status);
-            if (response.data.status === 404) window.alert(response.data.message);
-            else window.alert('Bem-vindo ' + response.data.data.name + '!');
+            if (response.data.status === 404) toast.error(response.data.message);
+            else toast.success(response.data.message);;
         });
     }
 
@@ -70,7 +69,6 @@ export default class LoginPage extends Component {
         
 
         return (
-
             <Container style={estilo}>
                 <section>
                     <Card style={estilo2}>
@@ -102,7 +100,21 @@ export default class LoginPage extends Component {
                         </CardBody>
                     </Card>
                 </section>
+                <ToastContainer
+                    style={{fontSize: "medium"}}
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar 
+                    closeButton={false} 
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                    >
+                </ToastContainer>
             </Container>
+
+
             );
         }
     }
