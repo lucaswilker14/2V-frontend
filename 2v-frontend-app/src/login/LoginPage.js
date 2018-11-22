@@ -4,8 +4,8 @@ import { Container, Card, CardBody, Input, Button, Fa, toast, ToastContainer } f
 import  { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import Google from './GoogleLoginButton'
-import Facebook from './FaceLoginButton'
+import Google from './../socialLogin/GoogleLoginButton'
+import Facebook from './../socialLogin/FaceLoginButton'
 
 export default class LoginPage extends Component {
     

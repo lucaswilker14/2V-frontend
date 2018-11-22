@@ -8,4 +8,12 @@
     -webkit-box-shadow: 0 10px 22px 0 rgba(85, 182, 255, 0.28), 0 8px 30px 0 rgba(36, 133, 255, 0.15);
     box-shadow: 0 10px 22px 0 rgba(85, 182, 255, 0.28), 0 8px 30px 0 rgba(36, 133, 255, 0.15); 
 }
-        
+    
+.LoginImage {
+    background-image: url("./../images/2v.jpg"); 
+    position: fixed; 
+    width: 1350px; 
+    height: auto; 
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

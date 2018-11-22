@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { GoogleLogin } from 'react-google-login';
 
 import { Button, Fa } from 'mdbreact';
+// import axios from 'axios'
+
 
 
 export default class SocialLogin extends Component {
@@ -13,30 +15,24 @@ export default class SocialLogin extends Component {
          isLoggedIn: false,
          userID: '',
          name: '',
-         email: ''
+         email: '',
+         token: ''
       }
     }
 
     responseGoogle = response => {
-        // const name = response;
-        // console.log(name.split(' ')[0]);
+        
+        console.log(response)
+        //abrir o modal pra preencher o resto dos dados
 
         // const request = {
-        //     method: 'post',
-        //     url: 'http://localhost:3000/api/2V/user',
+        //     method: 'get',
+        //     url: 'http://localhost:3000/cadastro',
         //     data: {
-        //         firstName: this.state.firstName,
-        //         secondName: this.state.secondName,
-        //         username: this.state.username,
-        //         phone: this.state.phone,
-        //         email: this.state.email,
-        //         password: this.state.password
+        //         token: response.tokenId
         //     }
-        // }
-
-        console.log(response);
+        // }     
     }
-    
     
     render() {
         
@@ -50,7 +46,8 @@ export default class SocialLogin extends Component {
                     clientId="944635213987-0ocq4gatvfgnqmlplh0baop4arekolln.apps.googleusercontent.com"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}
-                />       
+                    >       
+                </GoogleLogin>
 
             )
         }
