@@ -46,7 +46,8 @@ export default class SocialLogin extends Component {
                     clientId="944635213987-0ocq4gatvfgnqmlplh0baop4arekolln.apps.googleusercontent.com"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}
-                    >       
+                    >
+                           
                 </GoogleLogin>
 
             )
