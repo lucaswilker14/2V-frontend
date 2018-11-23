@@ -80,6 +80,7 @@ export default class CadastroPage extends Component {
                     <CardBody>
                         <form onSubmit={this.handleSubmit}>
                             <p className="h2 text-center py-4"> Cadastro </p>
+
                             <div className="grey-text">
                                 <Input name="firstName" value={this.state.firstName} onChange={this.handleChange} size="lg" label="Nome" icon="user" group type="text" validate  success="right" className="form-control" required/>
                                 <Input name="secondName" value={this.state.lastName} onChange={this.handleChange} size="lg" label="Sobrenome" icon="user" group type="text" validate  success="right" className="form-control" required/>                                
@@ -90,26 +91,26 @@ export default class CadastroPage extends Component {
                                 <Input name="password" value={this.state.password} onChange={this.handleChange} size="lg" label="Senha" icon="lock" group type="password" validate className="form-control" required/>
                             </div>
             
-                                <div className="text-center py-4 mt-3">
-                                    <Button color="second" size="lg">
-                                        <Link to='/'style={{color: "blue"}}> Voltar </Link>
-                                    </Button>
-                                    <Button size="lg" color="cyan" type="Submit"> Cadastrar </Button>
+                            <div className="text-center py-4 mt-3">
+                                <Button color="second" size="lg">
+                                    <Link to='/'style={{color: "blue"}}> Voltar </Link>
+                                </Button>
+                                <Button size="lg" color="cyan" type="Submit"> Cadastrar </Button>
                             </div>
                         </form>
                     </CardBody>
                 </Card>
             
             <ToastContainer
-            style={{fontSize: "medium"}}
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar 
-            closeButton={false} 
-            newestOnTop={false}
-            rtl={false}
-            draggable={false}
-            pauseOnHover={false}
+                style={{fontSize: "medium"}}
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar 
+                closeButton={false} 
+                newestOnTop={false}
+                rtl={false}
+                draggable={false}
+                pauseOnHover={false}
             >
             </ToastContainer>
             
