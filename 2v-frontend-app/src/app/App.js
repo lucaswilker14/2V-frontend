@@ -17,14 +17,13 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Route>
-        <Switch>
-            <Route exact path='/' component={ LoginPage } />
-            <Route exact path='/cadastro' component={ Cadastro } />
-            <Route exact path='/home' component={ Home } />
-        </Switch>
-      </Route>
-      
+        <Route>
+            <Switch>
+                <Route exact path='/' component={ LoginPage } />
+                <Route path='/cadastro' component={ Cadastro } />
+                <Route path='/home' component={ Home } />
+            </Switch>
+        </Route>
       </div>
       );
     }

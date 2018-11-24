@@ -10,36 +10,36 @@ import { Button, Fa } from 'mdbreact';
 
 export default class SocialLogin extends Component {
     
+
+
     constructor(props) {
       super(props)
       this.state = {
-         accessToken: '',
+         user: '',
+         message: 'Usuario Logado com Sucesso!'
       }
     }
 
     //na montagem do componente eu coloco dentro
     //da instacia de props a referencia
     componentDidMount() {
-        console.log('entra 1');
         this.props.onRef(this)
       }
 
     //depois apago
     componentWillUnmount() {
-        console.log('entra 3');
         this.props.onRef(undefined)
       }
     
 
     responseGoogle = response => {
-        console.log('entra 2');
         const state = Object.assign({}, this.state); //criando uma copia
-        state['accessToken'] = response.tokenId;
+        state['user'] = response.profileObj;
         this.setState(state); 
     }
 
     returnToken = () => {
-        return this.state.accessToken;
+        return this.state.user;
     }
 
     render() {
