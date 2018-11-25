@@ -22,7 +22,7 @@ export default class HomeLoader extends Component {
     render() {
 
         return (
-            this.state.isLoading ? <LoaderPage/> : <HomePage/>
+            this.state.isLoading ? <LoaderPage/> : <HomePage history={this.props.history}/>
         
             )
         }

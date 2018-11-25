@@ -14,19 +14,19 @@ import HomePage from './../home/HomeLoader'
 
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-        <Route>
+    render() {
+        return (
+            <div>
+            <Route>
             <Switch>
-                <Route exact path='/' component={ LoginPage } />
+                <Route exact path='/' component={ LoginPage }/>>
                 <Route path='/cadastro' component={ Cadastro } />
                 <Route path='/home' component={ HomePage } />
             </Switch>
-        </Route>
-      </div>
-      );
+            </Route>
+            </div>
+            );
+        }
     }
-  }
-  export default App;
-  
+    export default App;
+    
