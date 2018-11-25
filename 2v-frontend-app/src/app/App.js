@@ -10,7 +10,7 @@ import "mdbreact/dist/css/mdb.css";
 
 import LoginPage from './../login/LoginPage'
 import Cadastro from './../cadastro/CadastroPage'
-import Home from './../home/Home'
+import HomePage from './../home/HomeLoader'
 
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
             <Switch>
                 <Route exact path='/' component={ LoginPage } />
                 <Route path='/cadastro' component={ Cadastro } />
-                <Route path='/home' component={ Home } />
+                <Route path='/home' component={ HomePage } />
             </Switch>
         </Route>
       </div>

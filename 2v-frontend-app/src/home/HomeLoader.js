@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
 import LoaderPage from '../loaders/Loader'
+import HomePage from './HomePage'
 import './home.css'
 import '../loaders/loader.css'
 
-export default class Home extends Component {
+
+export default class HomeLoader extends Component {
     constructor(props) {
         super(props)
         
@@ -14,12 +16,14 @@ export default class Home extends Component {
     }
     
     componentDidMount = () => {
-        setTimeout(() => this.setState({ isLoading: false }), 300000);
+        setTimeout(() => this.setState({ isLoading: false }), 5000);
     }
-    
+
     render() {
+
         return (
-            this.state.isLoading ? <LoaderPage/> : <h1> H O M E</h1>
+            this.state.isLoading ? <LoaderPage/> : <HomePage/>
+        
             )
         }
     }
