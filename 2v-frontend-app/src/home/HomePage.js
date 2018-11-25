@@ -3,8 +3,8 @@ import axios from 'axios'
 import './home.css'
 import '../loaders/loader.css'
 
-import { Container, Button } from 'mdbreact';
-
+import NavBar from '../navbar/NavBarPage'
+// import SideBar from '../sidebar/Sidebar'
 
 export default class HomePage extends Component {
 
@@ -51,14 +51,14 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Container>
-                <h1>
+            <div className="container-fluid">
+                <NavBar/>
+                <h1 style={{textAlign: 'center'}}>
                     <ul>
                         {this.renderUser(this.state.userLogged)}
                     </ul>
                 </h1>
-                <Button size="lg" onClick={this.logout}> Logout </Button>
-            </Container>
+            </div>
         )
     }
 }
