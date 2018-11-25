@@ -17,16 +17,15 @@ class App extends Component {
     render() {
         return (
             <div>
-            <Route>
-            <Switch>
-                <Route exact path='/' component={ LoginPage }/>>
-                <Route path='/cadastro' component={ Cadastro } />
-                <Route path='/home' component={ HomePage } />
-            </Switch>
-            </Route>
+                <Route>
+                    <Switch>
+                        <Route exact path='/' component={LoginPage} />
+                        <Route path='/cadastro' component={Cadastro} />
+                        <Route path='/home' component={HomePage} />
+                    </Switch>
+                </Route>
             </div>
-            );
-        }
+        );
     }
-    export default App;
-    
+}
+export default App;

@@ -7,48 +7,48 @@ import { Container, Button } from 'mdbreact';
 
 
 export default class HomePage extends Component {
-    
+
     constructor(props) {
         super(props)
-        
+
         this.state = {
             userLogged: []
         }
         this.logout = this.logout.bind(this);
     }
-    
+
     componentDidMount = () => {
         this.listen();
     }
-    
+
     renderUser(user) {
         return (
             <div>
-            <li>Nome: {user.firstName}</li>
-            <li>Sobrenome: {user.secondName}</li>
-            <li>E-mail: {user.email}</li>
+                <li>Nome: {user.firstName}</li>
+                <li>Sobrenome: {user.secondName}</li>
+                <li>E-mail: {user.email}</li>
             </div>
-            ) 
-        }
-        
+        )
+    }
+
     logout() {
         this.props.history.push('/');
         localStorage.clear();
     }
-        
+
     listen() {
         var userId = localStorage.getItem('userId');
         const request = {
-            headers: {'x-access-token': localStorage.getItem('token')},
+            headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: 'http://localhost:3000/api/2V/user/' + userId 
+            url: 'http://localhost:3000/api/2V/user/' + userId
         }
-            
+
         axios(request).then((response) => {
-            this.setState({userLogged: response.data.data})
+            this.setState({ userLogged: response.data.data })
         });
     }
-        
+
     render() {
         return (
             <Container>
@@ -62,4 +62,3 @@ export default class HomePage extends Component {
         )
     }
 }
-        
