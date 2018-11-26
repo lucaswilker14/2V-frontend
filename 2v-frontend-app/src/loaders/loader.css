@@ -1,19 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
 
-
 .group {
     height: 100%;
     width: 100%;
     background: #4F4F4F;
     text-align: center;
-    /* line-height: 100vh; */
+    line-height: 100vh;
     position: relative;
     display: inline-block;
     line-height: 16px;
 }
 
 .bigSqr {
+    margin-top: 20%;
     position: relative;
     display: inline-block;
     width: 40px;
@@ -61,6 +61,7 @@
     display: block;
     margin: 10px auto;
     padding: 3px;
+    font-size: 20px
 }
 
 @keyframes bigSqrShrink {

@@ -8,12 +8,6 @@ class NavbarPage extends React.Component {
 
     toggleCollapse = this.setState({ isOpen: !this.state.isOpen });
 
-    shouldComponentUpdate = (nextProps, nextState) => {
-        console.log('ENTROU AAUI ');
-    }
-
-
-
     render() {
         return (
             <Navbar  style={{margin: "auto", borderRadius:"0px"}} color="blue-gradient" dark expand="md">

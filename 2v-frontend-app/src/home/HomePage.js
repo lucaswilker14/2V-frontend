@@ -66,10 +66,10 @@ export default class HomePage extends Component {
         return (
             <div>
                 <Container fluid style={{ padding: "0%" }}>
-                    <NavBar/>
+                    <NavBar />
                 </Container>
                 <Navigation>
-                    <SideBar style={{fontSize: "medium"}}/>
+                    <SideBar style={{ fontSize: "medium" }} />
                 </Navigation>
             </div>
         )
