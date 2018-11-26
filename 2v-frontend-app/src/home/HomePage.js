@@ -14,7 +14,7 @@ const Navigation = styled.div`
   display: flex;
   width: 220px;
   flex-shrink: 0;
-  background: #4fc3f7;
+  background: linear-gradient(#45cafc, #303f9f)!important;
   height: 100vh;
   border-right: 1px solid rgba(0, 0, 0, 0.125);
 `;

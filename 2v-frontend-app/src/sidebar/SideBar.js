@@ -5,21 +5,22 @@ import { SideNav, Nav, NavIcon } from "react-sidenav";
 import { Fa } from "mdbreact";
 
 const Text = {
-    marginTop: "6px",
+    marginTop: "9px",
     paddingLeft: "8px",
-    fontSize: "small",
+    fontSize: "1.5rem"
 }
 
 const theme = {
-    font_size: "medium",
-    hoverBgColor: "#42a5f5",
-    selectionBgColor: "#ec407a",
+    hoverBgColor: "#bdbdbd",
+    selectionBgColor: "#fff",
     selectionIconColor: "#1a237e"
 };
 
 const theme2 = {
     marginTop: "10px",
-    paddingLeft: "20px"
+    paddingLeft: "20px",
+    color: "white"
+
 }
 
 
