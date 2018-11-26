@@ -4,7 +4,20 @@ import './home.css'
 import '../loaders/loader.css'
 import { Container } from "mdbreact";
 
+import styled from "styled-components";
+
+
 import NavBar from '../navbar/NavBarPage'
+import SideBar from '../sidebar/SideBar'
+
+const Navigation = styled.div`
+  display: flex;
+  width: 220px;
+  flex-shrink: 0;
+  background: #4fc3f7;
+  height: 100vh;
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+`;
 
 export default class HomePage extends Component {
 
@@ -53,13 +66,11 @@ export default class HomePage extends Component {
         return (
             <div>
                 <Container fluid style={{ padding: "0%" }}>
-                    <NavBar />
+                    <NavBar/>
                 </Container>
-                <h1 style={{ textAlign: 'center' }}>
-                    <ul>
-                        {this.renderUser(this.state.userLogged)}
-                    </ul>
-                </h1>
+                <Navigation>
+                    <SideBar style={{fontSize: "medium"}}/>
+                </Navigation>
             </div>
         )
     }

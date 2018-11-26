@@ -16,7 +16,7 @@ export default class HomeLoader extends Component {
     }
 
     componentDidMount = () => {
-        setTimeout(() => this.setState({ isLoading: false }), 5000);
+        setTimeout(() => this.setState({ isLoading: false }), 2000);
     }
 
     render() {
