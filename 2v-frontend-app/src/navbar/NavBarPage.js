@@ -16,7 +16,7 @@ class NavbarPage extends React.Component {
 
     render() {
         return (
-            <Navbar color="red" dark expand="md">
+            <Navbar color="blue-gradient" dark expand="md">
                 <NavbarBrand style={{ fontSize: "3rem" }}>
                     <strong className="white-text">2V</strong>
                 </NavbarBrand>
@@ -26,7 +26,9 @@ class NavbarPage extends React.Component {
                 <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                     <NavbarNav left>
                         <NavItem style={{ fontSize: "2rem" }}>
-                            <NavLink to="#!">Home</NavLink>
+                            <NavLink to="#!">
+                                <Fa style={{ fontSize: "3rem" }} icon="home" /> 
+                            </NavLink>
                         </NavItem>
                     </NavbarNav>
 

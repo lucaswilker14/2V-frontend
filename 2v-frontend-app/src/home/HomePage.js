@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './home.css'
 import '../loaders/loader.css'
+import { Container } from "mdbreact";
 
 import NavBar from '../navbar/NavBarPage'
-// import SideBar from '../sidebar/Sidebar'
 
 export default class HomePage extends Component {
 
@@ -51,9 +51,11 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                <NavBar/>
-                <h1 style={{textAlign: 'center'}}>
+            <div>
+                <Container fluid style={{ padding: "0%" }}>
+                    <NavBar />
+                </Container>
+                <h1 style={{ textAlign: 'center' }}>
                     <ul>
                         {this.renderUser(this.state.userLogged)}
                     </ul>
