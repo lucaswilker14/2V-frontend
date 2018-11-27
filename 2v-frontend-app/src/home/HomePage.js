@@ -6,7 +6,7 @@ import { Container } from "mdbreact";
 
 import styled from "styled-components";
 
-import image from "../images/EU_LINDO.jpg"
+import image from '../images/EU_LINDO.jpg'
 
 import NavBar from '../navbar/NavBarPage'
 import SideBar from '../sidebar/SideBar'
@@ -49,7 +49,7 @@ export default class HomePage extends Component {
 
     renderUser(user) {
         return (
-            <h1 className="text-center" style={{marginTop: "10px"}}>
+            <h1 className="text-center" style={{ marginTop: "10px" }}>
                 <li>Nome: {user.firstName}</li>
                 <li>Sobrenome: {user.secondName}</li>
                 <li>E-mail: {user.email}</li>
@@ -87,9 +87,9 @@ export default class HomePage extends Component {
                         <SideBar style={{ fontSize: "medium" }} />
                     </Navigation>
                     <Body>
-                        <div className="d-flex justify-content-around" style={{margin: "100px"}}>
+                        <div className="d-flex justify-content-around" style={{ margin: "100px" }}>
                             <ul>
-                                <img className="mx-auto d-block" src={image} style={{maxHeight: "40%"}} alt="autoretrato"></img>
+                                <img className="mx-auto d-block" src={image} style={{ maxHeight: "40%", borderRadius: "100px" }} alt="autoretrato"></img>
                                 {this.renderUser(this.state.userLogged)}
                             </ul>
                         </div>
