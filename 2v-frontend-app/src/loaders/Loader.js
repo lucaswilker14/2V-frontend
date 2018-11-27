@@ -21,17 +21,17 @@ export default class Loader extends Component {
         var body = ReactDOM.findDOMNode(this).parentElement.parentElement.parentElement
         var root = ReactDOM.findDOMNode(this).parentElement.parentElement
         var div = ReactDOM.findDOMNode(this).parentElement
-        html.setAttribute('style', 'height: 0%');
-        body.setAttribute('style', 'height: 0%');
-        root.setAttribute('style', 'height: 0%');
-        div.setAttribute('style', 'height: 0%');
+        
+        html.setAttribute('style', 'height: null');
+        body.setAttribute('style', 'height: null');
+        root.setAttribute('style', 'height: null');
+        div.setAttribute('style', 'height: null');
     }
     
     
 
     render() {
         return (
-
             <div ref={'group'} className="group">
                 <div className="bigSqr">
                     <div className="square first"></div>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
+
 import './loginPage.css'
+import image from '../images/2v.jpg'
 
 import { Container, Card, CardBody, Input, Button, Fa, toast } from 'mdbreact';
 import { Link } from 'react-router-dom'
@@ -47,12 +50,19 @@ export default class LoginPage extends Component {
     //     console.log(this.child.returnToken());
     // }    
 
+    setImage(image, repeat, size){
+        var body = ReactDOM.findDOMNode(this).parentElement.parentElement
+        body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat +' ; background-size: ' + size + ' ;');
+    }
+
     componentDidMount = () => {
+        this.setImage(image, 'no-repeat', 'cover');
         localStorage.clear();
         this._isMounted = true;
     }
 
     componentWillUnmount = () => {
+        this.setImage(null, null, null);
         this._isMounted = false;
     }
 

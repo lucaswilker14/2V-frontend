@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
 import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 'mdbreact';
 import { Link } from 'react-router-dom'
+
+import image from '../images/2v.jpg'
+
 
 import axios from 'axios'
 
@@ -22,6 +26,22 @@ export default class CadastroPage extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
+    setImage(image, repeat, size) {
+        var body = ReactDOM.findDOMNode(this).parentElement.parentElement
+        body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat + ' ; background-size: ' + size + ' ;');
+    }
+
+    componentDidMount = () => {
+        this.setImage(image, 'no-repeat', 'cover');
+        localStorage.clear();
+    }
+
+    componentWillUnmount = () => {
+        this.setImage(null, null, null);
+    }
+
 
     handleChange(event) {
         //copiar sempre o estado da aplicacao para nao alterar o original
