@@ -4,7 +4,7 @@
 .group {
     height: 100%;
     width: 100%;
-    background: #4F4F4F;
+    background: linear-gradient(to right, #45cafc, #303f9f)!important;
     text-align: center;
     line-height: 100vh;
     position: relative;
@@ -27,7 +27,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: #4EEE94;
+    background: #ffffff ;
 }
 
 .first {
@@ -57,7 +57,7 @@
     line-height: 16px;
     font-family: "Open Sans","Roboto",Arial , sans-serif;
     font-weight: 400;
-    color: #4EEE94;
+    color: #ffffff ;
     display: block;
     margin: 10px auto;
     padding: 3px;
