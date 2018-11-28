@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import LoaderPage from '../loaders/Loader'
-import HomePage from './HomePage'
+import HomePage from './Home'
 import './home.css'
 import '../loaders/loader.css'
 
