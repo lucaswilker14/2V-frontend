@@ -20,7 +20,7 @@ class NavbarPage extends React.Component {
                 <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                     <NavbarNav left>
                         <NavItem style={{ fontSize: "2rem" }}>
-                            <NavLink to="#!">
+                            <NavLink to="/home/userprofile">
                                 <Fa style={{ fontSize: "3rem" }} icon="home" /> 
                             </NavLink>
                         </NavItem>
@@ -28,8 +28,8 @@ class NavbarPage extends React.Component {
 
                     <NavbarNav right>
                         <NavItem>
-                            <NavLink to="#!">
-                                <Fa style={{ fontSize: "2rem" }} icon="gear" />
+                            <NavLink to="/home/about">
+                                <Fa style={{ fontSize: "2rem" }} icon="question-circle-o" />
                             </NavLink>
                         </NavItem>
 

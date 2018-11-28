@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import './home.css'
 import '../loaders/loader.css'
 
-// import { Route, Switch } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import { Container } from "mdbreact";
 import styled from "styled-components";
+
 import NavBar from '../navbar/NavBarPage'
 import SideBar from '../sidebar/SideBar'
+//para a navbar
 import UserProfile from '../userProfile/UserProfile'
+import About from '../about/AboutPage'
+
+//para a sidebar
+import Iemprestado from '../item/ItemEmprestado';
+import Idevolvido from '../item/ItemDevolvido';
+// import MeusDados from '../meusdados/MeusDados';
 
 const Navigation = styled.div`
   display: flex;
@@ -46,13 +54,16 @@ export default class Home extends Component {
                 <Container fluid style={{ padding: "0%" }}>
                     <NavBar />
                 </Container>
-                
+
                 <AppContainer>
                     <Navigation>
                         <SideBar style={{ fontSize: "medium" }} />
                     </Navigation>
                     <Body>
-                        <UserProfile/>
+                        <Route exact path='/home/userprofile' render={() => (<UserProfile />)} />
+                        <Route path='/home/about' render={() => (<About />)} />
+                        <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
+                        <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
                     </Body>
                 </AppContainer>
 
