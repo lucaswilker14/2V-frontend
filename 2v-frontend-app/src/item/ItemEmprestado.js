@@ -16,8 +16,8 @@ export default class ItemEmprestado extends Component {
         return (
             <div>
                 <h1> PAGINA DE ITEMS EMPRESTADOS </h1>
-                <h1>Ainda não foi implementado :)</h1>
-                <MDBBtn size="lg" gradient="blue">
+                <h1> Ainda não foi implementado :] </h1>
+                <MDBBtn size="lg" gradient="aqua">
                     <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                 </MDBBtn>
             </div>

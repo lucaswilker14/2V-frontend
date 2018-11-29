@@ -10,7 +10,7 @@ class NavbarPage extends React.Component {
 
     render() {
         return (
-            <Navbar  style={{margin: "auto", borderRadius:"0px"}} color="blue-gradient" dark expand="md">
+            <Navbar  style={{margin: "auto", borderRadius:"0px"}} color="aqua-gradient" dark expand="md">
                 <NavbarBrand style={{ fontSize: "3rem" }}>
                     <strong className="white-text">2V   Vai-e-Volta</strong>
                 </NavbarBrand>
