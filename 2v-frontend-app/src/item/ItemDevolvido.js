@@ -5,6 +5,7 @@ export default class ItemDevolvido extends Component {
     return (
       <div>
         <h1> PAGINA DE ITEMS DEVOLVIDOS </h1>
+        <h1> Ainda não foi implementado :)</h1>
       </div>
     )
   }

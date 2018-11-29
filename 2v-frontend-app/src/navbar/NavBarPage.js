@@ -12,19 +12,12 @@ class NavbarPage extends React.Component {
         return (
             <Navbar  style={{margin: "auto", borderRadius:"0px"}} color="blue-gradient" dark expand="md">
                 <NavbarBrand style={{ fontSize: "3rem" }}>
-                    <strong className="white-text">2V</strong>
+                    <strong className="white-text">2V   Vai-e-Volta</strong>
                 </NavbarBrand>
                 <NavbarToggler
                     onClick={this.toggleCollapse}
                 />
                 <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-                    <NavbarNav left>
-                        <NavItem style={{ fontSize: "2rem" }}>
-                            <NavLink to="/home/userprofile">
-                                <Fa style={{ fontSize: "3rem" }} icon="home" /> 
-                            </NavLink>
-                        </NavItem>
-                    </NavbarNav>
 
                     <NavbarNav right>
                         <NavItem>

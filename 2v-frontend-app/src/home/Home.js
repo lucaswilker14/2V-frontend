@@ -60,7 +60,7 @@ export default class Home extends Component {
                         <SideBar style={{ fontSize: "medium" }} />
                     </Navigation>
                     <Body>
-                        <Route exact path='/home/userprofile' render={() => (<UserProfile />)} />
+                        <Route exact path='/home' render={() => (<UserProfile />)} />
                         <Route path='/home/about' render={() => (<About />)} />
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />

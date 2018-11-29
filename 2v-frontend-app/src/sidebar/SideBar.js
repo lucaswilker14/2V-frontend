@@ -30,6 +30,15 @@ export default class SideBar extends Component {
 
             <SideNav theme={theme} >
 
+                <Link to='/home'>
+                    <Nav id='userprofile' style={theme2}>
+                        <NavIcon style={{ paddingLeft: "20px" }}>
+                            <Fa style={{ fontSize: "1.75rem" }} icon="home" />
+                            <p style={Text}> Página Inicial </p>
+                        </NavIcon>
+                    </Nav>
+                </Link>
+
                 <Link to='/home/iemprestados'>
                     <Nav id='emprestado' style={theme2}>
                         <NavIcon style={{ paddingLeft: "20px" }}>
