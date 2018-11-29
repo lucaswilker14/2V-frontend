@@ -1,19 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
 
-
 .group {
     height: 100%;
     width: 100%;
-    background: #4F4F4F;
+    background: linear-gradient(to right, #2096ff, #05ffa3)!important;
     text-align: center;
-    /* line-height: 100vh; */
+    line-height: 100vh;
     position: relative;
     display: inline-block;
     line-height: 16px;
 }
 
 .bigSqr {
+    margin-top: 20%;
     position: relative;
     display: inline-block;
     width: 40px;
@@ -27,7 +27,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: #4EEE94;
+    background: #ffffff ;
 }
 
 .first {
@@ -57,10 +57,11 @@
     line-height: 16px;
     font-family: "Open Sans","Roboto",Arial , sans-serif;
     font-weight: 400;
-    color: #4EEE94;
+    color: #ffffff ;
     display: block;
     margin: 10px auto;
     padding: 3px;
+    font-size: 20px
 }
 
 @keyframes bigSqrShrink {

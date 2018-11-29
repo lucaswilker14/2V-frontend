@@ -6,10 +6,10 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 
 export default class FaceLoginButton extends Component {
-    
+
     constructor(props) {
         super(props)
-        
+
         this.state = {
             isLoggedIn: false,
             userID: '',
@@ -17,11 +17,11 @@ export default class FaceLoginButton extends Component {
             email: ''
         }
     }
-    
+
     responseFacebook = (response) => {
         console.log(response);
     }
-    
+
     render() {
         return (
             <FacebookLogin
@@ -33,9 +33,8 @@ export default class FaceLoginButton extends Component {
                     <Button onClick={renderProps.onClick} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
                         <Fa icon="facebook" className="blue-text text-center" />
                     </Button>
-                )}   
+                )}
             />
-            )
-        }
+        )
     }
-    
+}
