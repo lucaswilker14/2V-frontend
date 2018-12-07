@@ -16,6 +16,7 @@ import About from '../about/AboutPage'
 //para a sidebar
 import Iemprestado from '../item/ItemEmprestado';
 import Idevolvido from '../item/ItemDevolvido';
+import FormItem from '../item/formItem';
 // import MeusDados from '../meusdados/MeusDados';
 
 const Navigation = styled.div`
@@ -64,6 +65,7 @@ export default class Home extends Component {
                         <Route path='/home/about' render={() => (<About />)} />
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
+                        <Route path='/home/registeritem' render={() => (<FormItem />)} />
                     </Body>
                 </AppContainer>
 
