@@ -9,7 +9,7 @@ export default class ItemEmprestado extends Component {
         super(props)
 
         this.state = {
-
+            items: []
         }
     }
 
@@ -17,9 +17,9 @@ export default class ItemEmprestado extends Component {
     render() {
         return (
             <div>
-                <h1> PAGINA DE ITEMS EMPRESTADOS </h1>
+                <h1 className="text-center" style={{ marginTop: "10px" }}> PAGINA DE ITEMS EMPRESTADOS </h1>
                 <Link to='/home/registeritem'>
-                    <MDBBtn size="lg" gradient="aqua">
+                    <MDBBtn size="lg" gradient="aqua" style={{position: 'fixed', left: '1250px', top: '560px' }}>
                         <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                     </MDBBtn>
                 </Link>

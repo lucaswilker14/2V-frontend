@@ -129,20 +129,22 @@ export default class formItem extends Component {
                                 </Row>
 
                                 <Row>
-                                    <MDBCol size="4" style={{ marginTop: '15px', fontSize: '1.4rem' }}>
-                                        <DatePicker showDisabledMonthNavigation
-                                            minDate={new Date()}
+                                    <MDBCol size="4" style={{ fontSize: '1.4rem' }}>
+                                        <h5>Data de empréstimo</h5>
+                                        <DatePicker
                                             dateFormat="dd/MM/yyyy"
                                             selected={this.state.loan_date}
                                             onChange={this.handleChangeStardDate}
+                                            placeholderText="Data de empréstimo"
                                         />
                                     </MDBCol>
-                                    <MDBCol size="4" style={{ marginTop: '15px', fontSize: '1.4rem' }}>
-                                        <DatePicker showDisabledMonthNavigation
-                                            minDate={new Date()}
+                                    <MDBCol size="4" style={{ fontSize: '1.4rem' }}>
+                                        <h5>Data de devolução</h5>
+                                        <DatePicker
                                             dateFormat="dd/MM/yyyy"
                                             selected={this.state.return_date}
                                             onChange={this.handleChangeEndDate}
+                                            placeholderText={"Data de devolução"}
                                         />
                                     </MDBCol>
                                     <MDBCol size="4">
@@ -219,8 +221,6 @@ export default class formItem extends Component {
         )
     }
 }
-
-// <Input name="return_date" value={this.state.return_date} onChange={this.handleChange} size="lg" hint="Data de retorno" group type="text" validate success="right" className="form-control" required />
 
 
 
