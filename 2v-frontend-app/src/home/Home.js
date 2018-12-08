@@ -14,9 +14,9 @@ import UserProfile from '../userProfile/UserProfile'
 import About from '../about/AboutPage'
 
 //para a sidebar
-import Iemprestado from '../item/ItemEmprestado';
+import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
 import Idevolvido from '../item/ItemDevolvido';
-import FormItem from '../item/formItem';
+import FormItem from '../item/itemEmprestado/formItem';
 // import MeusDados from '../meusdados/MeusDados';
 
 const Navigation = styled.div`
@@ -31,6 +31,7 @@ const Navigation = styled.div`
 export const Body = styled.div`
   width: 100vw;
   height: 100vh;
+  background-color: #f5f5f5
 `;
 
 
