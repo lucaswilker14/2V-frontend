@@ -37,10 +37,9 @@ export default class Cards extends Component {
     }
 
     render() {
+        const {items} = this.props;
         return (
-            <Row>
-                {this.createCardsCol()}
-            </Row>
+            items.length > 0 ? <Row>{this.createCardsCol()}</Row> : <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item emprestado! </h1>
         )
     }
 }
