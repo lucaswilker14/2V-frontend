@@ -32,7 +32,6 @@ export default class ItemEmprestado extends Component {
         });
     }
 
-
     render() {
         return (
             <div>

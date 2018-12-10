@@ -27,7 +27,6 @@ export default class CadastroPage extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     setImage(image, repeat, size) {
         var body = ReactDOM.findDOMNode(this).parentElement.parentElement
         body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat + ' ; background-size: ' + size + ' ;');
