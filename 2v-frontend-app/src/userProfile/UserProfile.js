@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import image from '../images/EU_LINDO.jpg'
 import axios from 'axios'
+import { Fa } from "mdbreact";
 
 
 export default class UserProfile extends Component {
@@ -27,11 +28,6 @@ export default class UserProfile extends Component {
         )
     }
 
-    // logout() {
-    //     this.props.history.push('/');
-    //     localStorage.clear();
-    // }
-
     listen() {
         var userId = localStorage.getItem('userId');
         const request = {
@@ -48,9 +44,9 @@ export default class UserProfile extends Component {
     render() {
         return (
             <div>
-                <div className="d-flex justify-content-around" style={{ margin: "100px" }}>
+                <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>
                     <ul>
-                        <img className="mx-auto d-block" src={image} style={{ maxHeight: "40%", borderRadius: "100px" }} alt="autoretrato"></img>
+                        <Fa style={{ fontSize: "17rem" }} icon="user-circle-o" />
                         {this.renderUser(this.state.userLogged)}
                     </ul>
                 </div>
@@ -58,3 +54,6 @@ export default class UserProfile extends Component {
         )
     }
 }
+
+// <img className="mx-auto d-block" src={image} style={{ maxHeight: "40%", borderRadius: "100px" }} alt="autoretrato"></img>
+
