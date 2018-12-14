@@ -11,7 +11,7 @@ export default class ItemDevolvido extends Component {
         super(props)
 
         this.state = {
-            items: [],
+            returnedItems: [],
             modal: false
         }
     }
@@ -29,7 +29,7 @@ export default class ItemDevolvido extends Component {
         }
 
         axios(request).then((response) => {
-            this.setState({ items: response.data.data })
+            this.setState({ returnedItems: response.data.data })
         });
     }
 
@@ -39,7 +39,7 @@ export default class ItemDevolvido extends Component {
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS DEVOLVIDOS </h1>
 
                 <div style={{ paddingLeft: '30px' }}>
-                    <CardItem isBorrewed={false} items={this.state.items} />
+                    <CardItem isBorrewed={false} items={this.state.returnedItems} />
                 </div>
             </div>
         )
