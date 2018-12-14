@@ -12,6 +12,7 @@ export default class ItemEmprestado extends Component {
 
         this.state = {
             items: [],
+            modal: false
         }
     }
 

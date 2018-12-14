@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import image from '../images/EU_LINDO.jpg'
 import axios from 'axios'
 import { Fa } from "mdbreact";
 

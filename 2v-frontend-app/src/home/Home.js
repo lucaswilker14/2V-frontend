@@ -15,7 +15,7 @@ import About from '../about/AboutPage'
 
 //para a sidebar
 import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
-import Idevolvido from '../item/ItemDevolvido';
+import Idevolvido from '../item/itemDevolvido/ItemDevolvido';
 import FormItem from '../item/itemEmprestado/formItem';
 // import MeusDados from '../meusdados/MeusDados';
 
