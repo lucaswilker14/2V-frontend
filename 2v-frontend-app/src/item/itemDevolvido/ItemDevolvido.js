@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { MDBBtn, MDBIcon } from "mdbreact";
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+// import { MDBBtn, MDBIcon } from "mdbreact";
+// import { Link } from 'react-router-dom'
+// import axios from 'axios'
 
 export default class ItemDevolvido extends Component {
     

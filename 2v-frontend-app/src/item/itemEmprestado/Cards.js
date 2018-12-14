@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardBody, CardImage, CardTitle, Button, CardText, Col, Row } from "mdbreact";
+import { Card, CardBody, CardImage, CardTitle, CardText, Col, Row } from "mdbreact";
 import Modal from '../../modal/ModalItem'
 
 export default class Cards extends Component {
