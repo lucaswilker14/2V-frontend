@@ -10,9 +10,7 @@ export default class Cards extends Component {
         this.state = {
 
         }
-        this.openModal = this.openModal.bind(this);
     }
-
 
     formatDate = (date) => {
         let a = date.substr(0, 10);
@@ -21,12 +19,8 @@ export default class Cards extends Component {
         return c;
     }
 
-    openModal = () => {
-        this.modal.toggle();
-    }
-
     createCardsCol = () => {
-        const { items } = this.props
+        const { items, returnedItem } = this.props
         return items.map((element, i) =>
             <Col size="6" style={{ maxWidth: "27rem", top: '10px' }} key={element._id}>
                 <Card key={i} style={{ marginTop: '30px', marginLeft: '30px' }}>
@@ -34,7 +28,7 @@ export default class Cards extends Component {
                     <CardBody>
                         <CardTitle>{element.name + ' ' + element.brand}</CardTitle>
                         <CardText>{'Emprestante:' + element.user_adress.name + '. \nData de empréstimo:  ' + this.formatDate(element.loan_date)}</CardText>
-                        <Modal element={element}>Ver</Modal>
+                        <Modal returnedItem={returnedItem} element={element}> Ver </Modal>
                     </CardBody>
                 </Card>
             </Col>

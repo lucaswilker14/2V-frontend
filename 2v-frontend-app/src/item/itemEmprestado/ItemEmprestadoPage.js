@@ -33,13 +33,28 @@ export default class ItemEmprestado extends Component {
         });
     }
 
+    returnItem = (itemId) => {
+        var userId = localStorage.getItem('userId');
+        const request = {
+            headers: { 'x-access-token': localStorage.getItem('token') },
+            method: 'put',
+            url: 'http://localhost:3000/api/2V/user/' + userId + '/item/' + itemId
+        }
+
+
+        axios(request).then((response) => {
+            console.log(response.data);
+        });
+
+    }
+
     render() {
         return (
             <div>
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
 
                 <div style={{ paddingLeft: '30px' }}>
-                    <CardItem items={this.state.items} />
+                    <CardItem returnedItem={this.returnItem} items={this.state.items} />
                 </div>
 
                 <Link to='/home/registeritem'>

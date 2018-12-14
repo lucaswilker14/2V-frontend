@@ -25,13 +25,17 @@ export default class ModalItem extends Component {
         return c;
     }
 
+    handleClick = (itemId) => {
+        this.props.returnedItem(itemId);
+    }
+
     render() {
         const { element } = this.props
         return (
             <Container>
                 <Button color="primary" onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
-                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item</h3></ModalHeader>
+                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
                     <ModalBody>
                         <div>
                             <Row>
@@ -60,7 +64,7 @@ export default class ModalItem extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button size="lg" color="secondary" onClick={() => this.toggle()}>Pedir Item</Button>
-                        <Button size="lg" color="primary">Marcar como devolvido</Button>
+                        <Button size="lg" color="primary" onClick={() => this.handleClick(element._id)} >Marcar como devolvido</Button>
                     </ModalFooter>
                 </Modal>
             </Container>
