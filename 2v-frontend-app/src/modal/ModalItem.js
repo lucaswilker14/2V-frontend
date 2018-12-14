@@ -27,6 +27,7 @@ export default class ModalItem extends Component {
 
     handleClick = (itemId) => {
         this.props.returnedItem(itemId);
+        this.toggle();
     }
 
     render() {

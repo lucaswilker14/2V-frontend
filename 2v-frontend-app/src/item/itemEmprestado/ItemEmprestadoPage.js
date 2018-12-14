@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MDBBtn, MDBIcon } from "mdbreact";
+import { MDBBtn, MDBIcon, ToastContainer, toast } from "mdbreact";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -19,6 +19,14 @@ export default class ItemEmprestado extends Component {
     componentDidMount = () => {
         this.getItems();
     }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        console.log(prevState);
+        console.log(this.state.items);
+        let cdu = this.state.items !== prevState.items
+        return cdu
+    }
+
 
     getItems = () => {
         var userId = localStorage.getItem('userId');
@@ -43,8 +51,7 @@ export default class ItemEmprestado extends Component {
 
 
         axios(request).then((response) => {
-            //adicionar toast aqui pra dizer que devolveu
-            console.log(response.data);
+            toast.success(response.data.message);
         });
 
     }
@@ -63,6 +70,20 @@ export default class ItemEmprestado extends Component {
                         <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                     </MDBBtn>
                 </Link>
+
+
+                <ToastContainer
+                    style={{ fontSize: "medium" }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    closeButton={false}
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
 
             </div>
         )
