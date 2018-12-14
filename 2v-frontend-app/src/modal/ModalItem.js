@@ -7,7 +7,7 @@ export default class ModalItem extends Component {
         super(props)
 
         this.state = {
-            modal: false
+            modal: false,
         }
 
     }
@@ -30,12 +30,14 @@ export default class ModalItem extends Component {
     }
 
     render() {
-        const { element } = this.props
+        const { element, isBorrewed } = this.props
         return (
             <Container>
                 <Button color="primary" onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
-                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
+                    
+                <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
+                    
                     <ModalBody>
                         <div>
                             <Row>
@@ -49,7 +51,7 @@ export default class ModalItem extends Component {
                                     <h4>Cor: {element.color}</h4>
                                 </MDBCol>
                             </Row>
-                            
+
                             <br></br>
 
                             <Row>
@@ -62,10 +64,17 @@ export default class ModalItem extends Component {
                             </Row>
                         </div>
                     </ModalBody>
-                    <ModalFooter>
-                        <Button size="lg" color="secondary" onClick={() => this.toggle()}>Pedir Item</Button>
-                        <Button size="lg" color="primary" onClick={() => this.handleClick(element._id)} >Marcar como devolvido</Button>
-                    </ModalFooter>
+                    
+                    {isBorrewed ?
+                        <ModalFooter>
+                            <Button size="lg" color="secondary" onClick={() => this.toggle()}>Pedir Item</Button>
+                            <Button size="lg" color="primary" onClick={() => this.handleClick(element._id)} >Marcar como devolvido</Button>
+                        </ModalFooter>
+                        :
+                        <ModalFooter>
+                            <Button size="lg" color="secondary" onClick={() => this.toggle()}>Excluir Item</Button>
+                        </ModalFooter>
+                    }
                 </Modal>
             </Container>
         )

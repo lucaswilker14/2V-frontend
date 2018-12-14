@@ -3,7 +3,7 @@ import { MDBBtn, MDBIcon } from "mdbreact";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import CardItem from './Cards'
+import CardItem from '../cards/Cards'
 
 export default class ItemEmprestado extends Component {
 
@@ -43,6 +43,7 @@ export default class ItemEmprestado extends Component {
 
 
         axios(request).then((response) => {
+            //adicionar toast aqui pra dizer que devolveu
             console.log(response.data);
         });
 
@@ -54,7 +55,7 @@ export default class ItemEmprestado extends Component {
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
 
                 <div style={{ paddingLeft: '30px' }}>
-                    <CardItem returnedItem={this.returnItem} items={this.state.items} />
+                    <CardItem isBorrewed={true} returnedItem={this.returnItem} items={this.state.items} />
                 </div>
 
                 <Link to='/home/registeritem'>

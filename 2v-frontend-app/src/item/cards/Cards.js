@@ -4,14 +4,6 @@ import Modal from '../../modal/ModalItem'
 
 export default class Cards extends Component {
 
-    constructor(props) {
-        super(props)
-        this.modal = React.createRef();
-        this.state = {
-
-        }
-    }
-
     formatDate = (date) => {
         let a = date.substr(0, 10);
         let b = a.split('-');
@@ -20,7 +12,7 @@ export default class Cards extends Component {
     }
 
     createCardsCol = () => {
-        const { items, returnedItem } = this.props
+        const { items, returnedItem, isBorrewed } = this.props
         return items.map((element, i) =>
             <Col size="6" style={{ maxWidth: "27rem", top: '10px' }} key={element._id}>
                 <Card key={i} style={{ marginTop: '30px', marginLeft: '30px' }}>
@@ -28,7 +20,7 @@ export default class Cards extends Component {
                     <CardBody>
                         <CardTitle>{element.name + ' ' + element.brand}</CardTitle>
                         <CardText>{'Emprestante:' + element.user_adress.name + '. \nData de empréstimo:  ' + this.formatDate(element.loan_date)}</CardText>
-                        <Modal returnedItem={returnedItem} element={element}> Ver </Modal>
+                        <Modal isBorrewed={isBorrewed} returnedItem={returnedItem} element={element}> Ver </Modal>
                     </CardBody>
                 </Card>
             </Col>
