@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { MDBBtn, MDBIcon } from "mdbreact";
+import { MDBBtn, MDBIcon, ToastContainer, toast } from "mdbreact";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import CardItem from './Cards'
+import CardItem from '../cards/Cards'
 
 export default class ItemEmprestado extends Component {
 
@@ -33,13 +33,43 @@ export default class ItemEmprestado extends Component {
         });
     }
 
+    returnItem = (itemId) => {
+        var userId = localStorage.getItem('userId');
+        const request = {
+            headers: { 'x-access-token': localStorage.getItem('token') },
+            method: 'put',
+            url: 'http://localhost:3000/api/2V/user/' + userId + '/item/' + itemId
+        }
+
+
+        axios(request).then((response) => {
+            toast.success(response.data.message);
+        });
+
+    }
+
+    sendEmail = (itemId) => {
+        var userId = localStorage.getItem('userId');
+        const request = {
+            headers: { 'x-access-token': localStorage.getItem('token') },
+            method: 'get',
+            url: 'http://localhost:3000/api/2V/user/' + userId + '/item/' + itemId
+        }
+
+
+        axios(request).then((response) => {
+            console.log(response.data);
+            toast.success(response.data);
+        });
+    }
+
     render() {
         return (
             <div>
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
 
                 <div style={{ paddingLeft: '30px' }}>
-                    <CardItem items={this.state.items} />
+                    <CardItem isBorrewed={true} sendEmail={this.sendEmail} returnedItem={this.returnItem} items={this.state.items} />
                 </div>
 
                 <Link to='/home/registeritem'>
@@ -47,6 +77,19 @@ export default class ItemEmprestado extends Component {
                         <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                     </MDBBtn>
                 </Link>
+
+                <ToastContainer
+                    style={{ fontSize: "medium" }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    closeButton={false}
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
 
             </div>
         )

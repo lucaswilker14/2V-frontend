@@ -16,7 +16,6 @@ export default class Loader extends Component {
     }
 
     componentWillUnmount = () => {
-        console.log('componente morreu');
         var html = ReactDOM.findDOMNode(this).parentElement.parentElement.parentElement.parentElement;
         var body = ReactDOM.findDOMNode(this).parentElement.parentElement.parentElement
         var root = ReactDOM.findDOMNode(this).parentElement.parentElement
