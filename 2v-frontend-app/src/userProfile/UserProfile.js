@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Fa } from "mdbreact";
 
-
 export default class UserProfile extends Component {
 
     constructor(props) {

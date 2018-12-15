@@ -46,8 +46,8 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {}
-        // this.logout = this.logout.bind(this);
+        this.state = {
+        }
     }
 
     render() {

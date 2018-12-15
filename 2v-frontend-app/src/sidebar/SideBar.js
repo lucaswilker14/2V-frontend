@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { SideNav, Nav, NavIcon } from "react-sidenav";
 import { Fa } from "mdbreact";
 import { Link } from 'react-router-dom'
+import jwt from 'jsonwebtoken'
 
 const Text = {
     marginTop: "9px",
@@ -25,7 +26,28 @@ const theme2 = {
 }
 
 export default class SideBar extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            isAdmin: false
+        }
+    }
+
+    isAdmin = () => {
+        let isAdmin = jwt.decode(localStorage.getItem('token')).role;
+        console.log(isAdmin === 'Admin');
+        isAdmin === 'Admin' ? this.setState({ isAdmin: true }) : this.setState({ isAdmin: false });
+    }
+
+    componentWillMount = () => {
+        this.isAdmin();
+    }
+
+
     render() {
+        console.log(this.state.isAdmin);
         return (
 
             <SideNav theme={theme} >
@@ -65,6 +87,19 @@ export default class SideBar extends Component {
                         </NavIcon>
                     </Nav>
                 </Link>
+
+                {this.state.isAdmin ?
+                    <Link to='/home/systemDate'>
+                        <Nav style={theme2}>
+                            <NavIcon>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="clock-o" />
+                                <p style={Text}> Alterar hora do Sistema </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                    :
+                    ''
+                }
 
             </SideNav>
 
