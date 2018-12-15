@@ -25,8 +25,13 @@ export default class ModalItem extends Component {
         return c;
     }
 
-    handleClick = (itemId) => {
+    returnedItemSelected = (itemId) => {
         this.props.returnedItem(itemId);
+        this.toggle();
+    }
+
+    sendEmailItemSelected = (itemId) => {
+        this.props.sendEmail(itemId)
         this.toggle();
     }
 
@@ -68,8 +73,8 @@ export default class ModalItem extends Component {
                     
                     {isBorrewed ?
                         <ModalFooter>
-                            <Button size="lg" color="secondary" onClick={() => this.toggle()}>Pedir Item</Button>
-                            <Button size="lg" color="primary" onClick={() => this.handleClick(element._id)} >Marcar como devolvido</Button>
+                            <Button size="lg" color="secondary" onClick={() => this.sendEmailItemSelected(element._id)}>Pedir Item</Button>
+                            <Button size="lg" color="primary" onClick={() => this.returnedItemSelected(element._id)} >Marcar como devolvido</Button>
                         </ModalFooter>
                         :
                         <ModalFooter>

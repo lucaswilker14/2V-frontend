@@ -20,14 +20,6 @@ export default class ItemEmprestado extends Component {
         this.getItems();
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        console.log(prevState);
-        console.log(this.state.items);
-        let cdu = this.state.items !== prevState.items
-        return cdu
-    }
-
-
     getItems = () => {
         var userId = localStorage.getItem('userId');
         const request = {
@@ -56,13 +48,28 @@ export default class ItemEmprestado extends Component {
 
     }
 
+    sendEmail = (itemId) => {
+        var userId = localStorage.getItem('userId');
+        const request = {
+            headers: { 'x-access-token': localStorage.getItem('token') },
+            method: 'get',
+            url: 'http://localhost:3000/api/2V/user/' + userId + '/item/' + itemId
+        }
+
+
+        axios(request).then((response) => {
+            console.log(response.data);
+            toast.success(response.data);
+        });
+    }
+
     render() {
         return (
             <div>
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
 
                 <div style={{ paddingLeft: '30px' }}>
-                    <CardItem isBorrewed={true} returnedItem={this.returnItem} items={this.state.items} />
+                    <CardItem isBorrewed={true} sendEmail={this.sendEmail} returnedItem={this.returnItem} items={this.state.items} />
                 </div>
 
                 <Link to='/home/registeritem'>
@@ -70,7 +77,6 @@ export default class ItemEmprestado extends Component {
                         <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                     </MDBBtn>
                 </Link>
-
 
                 <ToastContainer
                     style={{ fontSize: "medium" }}
@@ -84,7 +90,6 @@ export default class ItemEmprestado extends Component {
                     pauseOnHover={false}
                 >
                 </ToastContainer>
-
             </div>
         )
     }
