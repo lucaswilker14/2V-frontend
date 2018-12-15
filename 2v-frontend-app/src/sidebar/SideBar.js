@@ -45,7 +45,6 @@ export default class SideBar extends Component {
         this.isAdmin();
     }
 
-
     render() {
         console.log(this.state.isAdmin);
         return (
@@ -61,23 +60,46 @@ export default class SideBar extends Component {
                     </Nav>
                 </Link>
 
-                <Link to='/home/iemprestados'>
-                    <Nav id='emprestado' style={theme2}>
-                        <NavIcon style={{ paddingLeft: "20px" }}>
-                            <Fa style={{ fontSize: "1.75rem" }} icon="arrow-circle-o-up" />
-                            <p style={Text}> Item Emprestados </p>
-                        </NavIcon>
-                    </Nav>
-                </Link>
+                {!this.state.isAdmin ?
+                    <Link to='/home/iemprestados'>
+                        <Nav id='emprestado' style={theme2}>
+                            <NavIcon style={{ paddingLeft: "20px" }}>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="arrow-circle-o-up" />
+                                <p style={Text}> Item Emprestados </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                    :
+                    <Link to='/home/admin/users'>
+                        <Nav id='emprestado' style={theme2}>
+                            <NavIcon style={{ paddingLeft: "20px" }}>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="users" />
+                                <p style={Text}> Lista de Usuários </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                }
 
-                <Link to='/home/idevolvidos'>
-                    <Nav style={theme2}>
-                        <NavIcon>
-                            <Fa style={{ fontSize: "1.75rem" }} icon="arrow-circle-o-down" />
-                            <p style={Text}> Items Devolvidos </p>
-                        </NavIcon>
-                    </Nav>
-                </Link>
+                {!this.state.isAdmin ?
+                    <Link to='/home/idevolvidos'>
+                        <Nav style={theme2}>
+                            <NavIcon>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="arrow-circle-o-down" />
+                                <p style={Text}> Items Devolvidos </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                    :
+                    <Link to='/home/admin/criarAdmin'>
+                        <Nav style={theme2}>
+                            <NavIcon>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="user-secret" />
+                                <p style={Text}> Criar Admin </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+
+                }
 
                 <Link to='/home/meusdados'>
                     <Nav style={theme2}>
