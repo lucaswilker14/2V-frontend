@@ -30,7 +30,7 @@ export default class Cards extends Component {
     render() {
         const { items } = this.props;
         return (
-            items.length > 0 ? <Row>{this.createCardsCol()}</Row> : <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item emprestado! </h1>
+            items.length > 0 ? <Row>{this.createCardsCol()}</Row> : <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item! </h1>
         )
     }
 }

@@ -49,7 +49,7 @@ export default class ModalItem extends Component {
 
                     <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
 
-                    <ModalBody>
+                    <ModalBody style={{overflow: 'hidden'}} >
                         <div>
                             <Row>
                                 <MDBCol>
