@@ -69,7 +69,7 @@ export default class SideBar extends Component {
                         </Nav>
                     </Link>
                     :
-                    <Link to='/home/admin/users'>
+                    <Link to='/admin/users'>
                         <Nav id='emprestado' style={theme2}>
                             <NavIcon style={{ paddingLeft: "20px" }}>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="users" />
@@ -89,7 +89,7 @@ export default class SideBar extends Component {
                         </Nav>
                     </Link>
                     :
-                    <Link to='/home/admin/criarAdmin'>
+                    <Link to='/admin/criarAdmin'>
                         <Nav style={theme2}>
                             <NavIcon>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="user-secret" />
@@ -110,7 +110,7 @@ export default class SideBar extends Component {
                 </Link>
 
                 {this.state.isAdmin ?
-                    <Link to='/home/admin/systemDate'>
+                    <Link to='/admin/systemDate'>
                         <Nav style={theme2}>
                             <NavIcon>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="clock-o" />
