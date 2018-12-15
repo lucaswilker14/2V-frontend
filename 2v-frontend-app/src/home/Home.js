@@ -17,6 +17,7 @@ import About from '../about/AboutPage'
 import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
 import Idevolvido from '../item/itemDevolvido/ItemDevolvido';
 import FormItem from '../item/itemEmprestado/formItem';
+import AdminRoute from '../admin/Routes'
 // import MeusDados from '../meusdados/MeusDados';
 
 const Navigation = styled.div`
@@ -67,6 +68,7 @@ export default class Home extends Component {
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
                         <Route path='/home/registeritem' render={() => (<FormItem />)} />
+                        <Route path='/home/admin' render={() => (<AdminRoute/>)}/>
                     </Body>
                 </AppContainer>
 

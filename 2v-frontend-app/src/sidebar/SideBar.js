@@ -110,7 +110,7 @@ export default class SideBar extends Component {
                 </Link>
 
                 {this.state.isAdmin ?
-                    <Link to='/home/systemDate'>
+                    <Link to='/home/admin/systemDate'>
                         <Nav style={theme2}>
                             <NavIcon>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="clock-o" />
