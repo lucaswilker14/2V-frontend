@@ -37,7 +37,6 @@ export default class SideBar extends Component {
 
     isAdmin = () => {
         let isAdmin = jwt.decode(localStorage.getItem('token')).role;
-        console.log(isAdmin === 'Admin');
         isAdmin === 'Admin' ? this.setState({ isAdmin: true }) : this.setState({ isAdmin: false });
     }
 
