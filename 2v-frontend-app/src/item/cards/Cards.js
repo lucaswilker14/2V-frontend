@@ -12,7 +12,7 @@ export default class Cards extends Component {
     }
 
     createCardsCol = () => {
-        const { items, returnedItem, isBorrewed, sendEmail } = this.props
+        const { items, returnedItem, isBorrewed, sendEmail, deleteItem } = this.props
         return items.map((element, i) =>
             <Col size="6" style={{ maxWidth: "27rem", top: '10px' }} key={element._id}>
                 <Card key={i} style={{ marginTop: '30px', marginLeft: '30px' }}>
@@ -20,7 +20,7 @@ export default class Cards extends Component {
                     <CardBody>
                         <CardTitle>{element.name + ' ' + element.brand}</CardTitle>
                         <CardText>{'Emprestante:' + element.user_adress.name + '. \nData de empréstimo:  ' + this.formatDate(element.loan_date)}</CardText>
-                        <Modal isBorrewed={isBorrewed} sendEmail={sendEmail} returnedItem={returnedItem} element={element}> Ver </Modal>
+                        <Modal isBorrewed={isBorrewed} deleteItem={deleteItem} sendEmail={sendEmail} returnedItem={returnedItem} element={element}> Ver </Modal>
                     </CardBody>
                 </Card>
             </Col>

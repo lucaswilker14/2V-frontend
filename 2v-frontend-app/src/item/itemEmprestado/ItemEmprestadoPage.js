@@ -90,6 +90,7 @@ export default class ItemEmprestado extends Component {
                     pauseOnHover={false}
                 >
                 </ToastContainer>
+
             </div>
         )
     }

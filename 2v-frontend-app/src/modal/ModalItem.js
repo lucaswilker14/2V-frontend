@@ -35,15 +35,20 @@ export default class ModalItem extends Component {
         this.toggle();
     }
 
+    deleteItem = (itemId) => {
+        this.props.deleteItem(itemId)
+        this.toggle();
+    }
+
     render() {
         const { element, isBorrewed } = this.props
         return (
             <Container>
                 <Button color="primary" onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
-                    
-                <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
-                    
+
+                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
+
                     <ModalBody>
                         <div>
                             <Row>
@@ -70,7 +75,7 @@ export default class ModalItem extends Component {
                             </Row>
                         </div>
                     </ModalBody>
-                    
+
                     {isBorrewed ?
                         <ModalFooter>
                             <Button size="lg" color="secondary" onClick={() => this.sendEmailItemSelected(element._id)}>Pedir Item</Button>
@@ -78,7 +83,7 @@ export default class ModalItem extends Component {
                         </ModalFooter>
                         :
                         <ModalFooter>
-                            <Button size="lg" color="secondary" onClick={() => this.toggle()}>Excluir Item</Button>
+                            <Button size="lg" color="secondary" onClick={() => this.deleteItem(element._id)}>Excluir Item</Button>
                         </ModalFooter>
                     }
                 </Modal>
