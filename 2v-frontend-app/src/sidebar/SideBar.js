@@ -45,7 +45,6 @@ export default class SideBar extends Component {
     }
 
     render() {
-        console.log(this.state.isAdmin);
         return (
 
             <SideNav theme={theme} >
