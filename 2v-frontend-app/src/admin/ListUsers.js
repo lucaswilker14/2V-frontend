@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Table, TableBody, TableHead, Container } from 'mdbreact';
 import axios from 'axios'
+import { API_ROUTE } from '../env'
 
 export default class ListUsers extends Component {
 
@@ -17,7 +18,7 @@ export default class ListUsers extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: 'http://localhost:3000/api/2V/admin'
+            url: API_ROUTE + '/admin'
         }
 
         axios(request).then((response) => {

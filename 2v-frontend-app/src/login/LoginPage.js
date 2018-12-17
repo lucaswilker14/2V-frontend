@@ -15,6 +15,9 @@ import jwt from 'jsonwebtoken'
 import Google from './../socialLogin/GoogleLoginButton'
 import Facebook from './../socialLogin/FaceLoginButton'
 
+import { API_ROUTE } from '../env'
+
+
 export default class LoginPage extends Component {
 
     _isMounted = false;
@@ -70,7 +73,7 @@ export default class LoginPage extends Component {
 
         const request = {
             method: 'post',
-            url: 'http://localhost:3000/api/2V/login',
+            url: API_ROUTE + '/login',
             data: {
                 username: this.state.username,
                 password: this.state.password

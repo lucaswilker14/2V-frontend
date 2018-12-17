@@ -3,6 +3,8 @@ import 'rc-time-picker/assets/index.css';
 import TimePicker from 'rc-time-picker';
 import moment from 'moment';
 import axios from 'axios'
+import { API_ROUTE } from '../env'
+
 
 import { Container, Button, toast, ToastContainer } from 'mdbreact';
 
@@ -39,7 +41,7 @@ export default class SystemHour extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'put',
-            url: 'http://localhost:3000/api/2V/admin/systemdate',
+            url: API_ROUTE + '/admin/systemdate',
             data: {
                 hour: systemHour,
                 minute: systemMinute

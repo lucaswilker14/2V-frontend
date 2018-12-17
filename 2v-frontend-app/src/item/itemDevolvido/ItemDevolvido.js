@@ -4,6 +4,8 @@ import CardItem from '../cards/Cards'
 import { ToastContainer, toast } from "mdbreact";
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { API_ROUTE } from '../../env'
+
 
 export default class ItemDevolvido extends Component {
 
@@ -38,7 +40,7 @@ export default class ItemDevolvido extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'delete',
-            url: 'http://localhost:3000/api/2V/user/' + userId + '/item/' + itemId
+            url: API_ROUTE + '/user/' + userId + '/item/' + itemId
         }
 
 

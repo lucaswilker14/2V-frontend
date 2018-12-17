@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import axios from 'axios'
 
+import { API_ROUTE } from '../../env'
 
 
 export default class formItem extends Component {
@@ -64,7 +65,7 @@ export default class formItem extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'post',
-            url: 'http://localhost:3000/api/2V/user/' + localStorage.getItem('userId'),
+            url: API_ROUTE + '/user/' + localStorage.getItem('userId'),
             data: {
                 name: this.state.name,
                 color: this.state.color,

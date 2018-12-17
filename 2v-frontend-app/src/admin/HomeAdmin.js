@@ -13,8 +13,6 @@ import NavBar from '../navbar/NavBarPage'
 import SideBar from '../sidebar/SideBar'
 
 //para a navbar
-import UserProfile from '../userProfile/UserProfile'
-import About from '../about/AboutPage'
 import AdminRoutes from './Routes'
 
 
