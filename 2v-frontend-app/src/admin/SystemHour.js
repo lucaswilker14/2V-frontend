@@ -29,12 +29,17 @@ export default class SystemHour extends Component {
         this.setState({systemMinute: time[1]});
     }
 
+    componentDidMount = () => {
+      
+    }
+    
+
     setSystemHour = () => {
         const { systemHour, systemMinute } = this.state;
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'put',
-            url: 'http://localhost:3000/api/2V/admin/systemDate',
+            url: 'http://localhost:3000/api/2V/admin/systemdate',
             data: {
                 hour: systemHour,
                 minute: systemMinute
@@ -43,7 +48,6 @@ export default class SystemHour extends Component {
 
         axios(request).then((response) => {
             response ? toast.success(response.data) : toast.warn(response.data);
-            
         });
     }
 
