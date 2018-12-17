@@ -29,7 +29,7 @@ export default class ListUsers extends Component {
     createRows = () => {
         const {users} = this.state;
         return users.map((element, i) =>
-            <tr>
+            <tr key={i}>
                 <td style={{fontSize: '1.5rem'}}>{i}</td>
                 <td style={{fontSize: '1.5rem'}}>{element.firstName} {element.secondName}</td>
                 <td style={{fontSize: '1.5rem'}}>{element.email}</td>

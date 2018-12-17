@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 import NavBar from '../navbar/NavBarPage'
 import SideBar from '../sidebar/SideBar'
+
 //para a navbar
 import UserProfile from '../userProfile/UserProfile'
 import About from '../about/AboutPage'
@@ -18,7 +19,6 @@ import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
 import Idevolvido from '../item/itemDevolvido/ItemDevolvido';
 import FormItem from '../item/itemEmprestado/formItem';
 import AdminRoute from '../admin/Routes'
-// import MeusDados from '../meusdados/MeusDados';
 
 const Navigation = styled.div`
   display: flex;
