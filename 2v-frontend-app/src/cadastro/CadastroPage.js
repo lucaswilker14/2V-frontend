@@ -35,12 +35,14 @@ export default class CadastroPage extends Component {
     componentDidMount = () => {
         this.setImage(image, 'no-repeat', 'cover');
         localStorage.clear();
+        const {firstName, secondName, email, isToast} = this.props;
+        this.setState({firstName: firstName, secondName: secondName, email: email});
+        if(isToast) toast.warn('Preencha alguns dados antes de  continuar');
     }
 
     componentWillUnmount = () => {
         this.setImage(null, null, null);
     }
-
 
     handleChange(event) {
         //copiar sempre o estado da aplicacao para nao alterar o original
@@ -71,6 +73,7 @@ export default class CadastroPage extends Component {
         }
 
         axios(request).then((response) => {
+            console.log(response);
             toast.success(response.data.message);
         }).catch((err) => {
             console.log(err);
@@ -92,7 +95,6 @@ export default class CadastroPage extends Component {
         const estilo2 = {
             width: "500px"
         }
-
         return (
             <Container style={estilo}>
                 <Card style={estilo2}>
@@ -102,7 +104,7 @@ export default class CadastroPage extends Component {
 
                             <div className="grey-text">
                                 <Input name="firstName" value={this.state.firstName} onChange={this.handleChange} size="lg" label="Nome" icon="user" group type="text" validate success="right" className="form-control" required />
-                                <Input name="secondName" value={this.state.lastName} onChange={this.handleChange} size="lg" label="Sobrenome" icon="user" group type="text" validate success="right" className="form-control" required />
+                                <Input name="secondName" value={this.state.secondName} onChange={this.handleChange} size="lg" label="Sobrenome" icon="user" group type="text" validate success="right" className="form-control" required />
                                 <Input name="username" value={this.state.username} onChange={this.handleChange} size="lg" label="Username" icon="user-plus" group type="text" validate success="right" className="form-control" required />
                                 <Input name="phone" value={this.state.phone} onChange={this.handleChange} size="lg" label="Telefone" icon="phone" group type="tel" validate success="right" className="form-control" required />
                                 <Input name="email" value={this.state.email} onChange={this.handleChange} size="lg" label="Email" icon="envelope" group type="email" validate success="right" className="form-control" required />

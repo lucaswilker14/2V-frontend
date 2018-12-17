@@ -53,9 +53,9 @@ export default class LoginPage extends Component {
     //     console.log(this.child.returnToken());
     // }    
 
-    setImage(image, repeat, size){
+    setImage(image, repeat, size) {
         var body = ReactDOM.findDOMNode(this).parentElement.parentElement
-        body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat +' ; background-size: ' + size + ' ;');
+        body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat + ' ; background-size: ' + size + ' ;');
     }
 
     componentDidMount = () => {
@@ -100,6 +100,10 @@ export default class LoginPage extends Component {
         });
     }
 
+    loginGoogle = (responseG) => {
+        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseG}});
+    } 
+
     render() {
         return (
             <Container className="login-container">
@@ -130,7 +134,7 @@ export default class LoginPage extends Component {
 
                                 <div className="row my-3 d-flex justify-content-center">
                                     <Facebook />
-                                    <Google onRef={ref => (this.child = ref)} />
+                                    <Google loginGoogle={this.loginGoogle}/>
                                     <Button onClick={this.onClickTwitter} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
                                         <Fa icon="twitter" className="blue-text" />
                                     </Button>

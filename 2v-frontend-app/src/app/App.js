@@ -12,6 +12,7 @@ import { isAuthenticated, isAdmin } from '../auth/auth'
 
 import LoginPage from './../login/LoginPage'
 import Cadastro from './../cadastro/CadastroPage'
+import CadastroSocial from '../cadastro/CadastroSocial'
 import HomePage from './../home/HomeLoader'
 import NotFoundPage from '../notFound/NotFound'
 import AdminRoute from '../admin/HomeAdmin'
@@ -36,6 +37,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path='/' component={LoginPage} />
                         <Route path='/cadastro' component={Cadastro} />
+                        <Route path='/cadastrosocial' component={CadastroSocial} />
                         <PrivateRouteHome path='/home' component={HomePage} />
                         <PrivateRouteAdmin path='/admin/home' component={AdminRoute} />
                         <Route path='*' component={NotFoundPage} />
