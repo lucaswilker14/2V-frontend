@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import { SideNav, Nav, NavIcon } from "react-sidenav";
 import { Fa } from "mdbreact";
 import { Link } from 'react-router-dom'
-import jwt from 'jsonwebtoken'
 
 const Text = {
     marginTop: "9px",

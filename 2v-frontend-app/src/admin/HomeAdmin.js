@@ -22,7 +22,7 @@ const Navigation = styled.div`
   display: flex;
   width: 220px;
   flex-shrink: 0;
-  background: linear-gradient(to bottom right, #fb8c00 , #e65100)!important;
+  background: linear-gradient(to bottom right, #b71c1c, #4a148c)!important;
   height: 100vh;
   border-right: 1px solid rgba(0, 0, 0, 0.125);
 `;

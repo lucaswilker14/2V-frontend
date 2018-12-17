@@ -55,7 +55,7 @@ export default class SystemHour extends Component {
         return (
             <Container style={{textAlign: 'center', marginTop: '20%'}}>
                 <h1 className="text-center">
-                    Altera a hora do envio automaticos de emails
+                    Alterar a hora do sistema para o envio automaticos de emails
                 </h1>
                 <TimePicker
                     showSecond={false}
@@ -65,9 +65,8 @@ export default class SystemHour extends Component {
                     format={format}
                     inputReadOnly
                 />
-                <Button gradient="aqua" style={{ fontSize: "0.83rem" }} onClick={this.setSystemHour}> Alterar </Button>
+                <Button color='red' style={{ fontSize: "0.83rem" }} onClick={this.setSystemHour}> Alterar </Button>
 
-                
                 <ToastContainer
                     style={{ fontSize: "medium" }}
                     position="top-right"
