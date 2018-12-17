@@ -19,7 +19,8 @@ export default class CadastroPage extends Component {
             username: '',
             phone: '',
             email: '',
-            password: ''
+            password: '',
+            image:''
         }
 
 
@@ -35,8 +36,8 @@ export default class CadastroPage extends Component {
     componentDidMount = () => {
         this.setImage(image, 'no-repeat', 'cover');
         localStorage.clear();
-        const {firstName, secondName, email, isToast} = this.props;
-        this.setState({firstName: firstName, secondName: secondName, email: email});
+        const {firstName, secondName, email, imageGoogle, isToast} = this.props;
+        this.setState({firstName: firstName, secondName: secondName, email: email, image: imageGoogle});
         if(isToast) toast.warn('Preencha alguns dados antes de  continuar');
     }
 
@@ -68,7 +69,8 @@ export default class CadastroPage extends Component {
                 username: this.state.username,
                 phone: this.state.phone,
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
+                image: this.state.image
             }
         }
 

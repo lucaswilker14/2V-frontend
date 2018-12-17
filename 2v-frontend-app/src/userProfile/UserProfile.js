@@ -10,7 +10,8 @@ export default class UserProfile extends Component {
         super(props)
 
         this.state = {
-            userLogged: []
+            userLogged: [],
+            imageUrl: ''
         }
     }
 
@@ -37,7 +38,7 @@ export default class UserProfile extends Component {
         }
 
         axios(request).then((response) => {
-            this.setState({ userLogged: response.data.data })
+            this.setState({ userLogged: response.data.data, imageUrl: response.data.data.image })
         });
     }
 
@@ -46,7 +47,17 @@ export default class UserProfile extends Component {
             <div>
                 <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>
                     <ul>
-                        <Fa style={{ fontSize: "17rem" }} icon="user-circle-o" />
+
+                        {this.state.imageUrl.includes('não definida') ?
+                            <Fa style={{ fontSize: "17rem" }} icon="user-circle-o" />
+                            :
+                            <img className="mx-auto d-block"
+                                src={this.state.imageUrl}
+                                style={{ height: '17rem', borderRadius: "100px" }}
+                                alt="autoretrato"
+                            />
+                        }
+
                         {this.renderUser(this.state.userLogged)}
                     </ul>
                 </div>
