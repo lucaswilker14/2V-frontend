@@ -9,7 +9,7 @@ import { API_ROUTE } from '../env'
 import { Container, Button, toast, ToastContainer } from 'mdbreact';
 
 
-const format = 'h:mm';
+const format = 'HH:mm';
 
 export default class SystemHour extends Component {
 
@@ -35,7 +35,6 @@ export default class SystemHour extends Component {
       
     }
     
-
     setSystemHour = () => {
         const { systemHour, systemMinute } = this.state;
         const request = {
@@ -62,7 +61,6 @@ export default class SystemHour extends Component {
                 <TimePicker
                     showSecond={false}
                     defaultValue={moment()}
-                    className="xxx"
                     onChange={this.onChange}
                     format={format}
                     inputReadOnly
