@@ -18,7 +18,6 @@ export default class UserProfile extends Component {
       
     }
     
-
     componentDidMount = () => {
         this.listen();
     }
