@@ -19,7 +19,7 @@ export default class FaceLoginButton extends Component {
     }
 
     responseFacebook = (response) => {
-        console.log(response);
+        this.props.loginFacebook(response);
     }
 
     render() {

@@ -49,10 +49,6 @@ export default class LoginPage extends Component {
         event.preventDefault();
     }
 
-    // onClickTwitter = () => {
-    //     console.log(this.child.returnToken());
-    // }    
-
     setImage(image, repeat, size) {
         var body = ReactDOM.findDOMNode(this).parentElement.parentElement
         body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat + ' ; background-size: ' + size + ' ;');
@@ -101,8 +97,13 @@ export default class LoginPage extends Component {
     }
 
     loginGoogle = (responseG) => {
-        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseG}});
+        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseG, isGoogle: true}});
     } 
+
+    //dont work
+    loginFacebook = (responseF) => {
+        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseF, isGoogle: false}});
+    }
 
     render() {
         return (

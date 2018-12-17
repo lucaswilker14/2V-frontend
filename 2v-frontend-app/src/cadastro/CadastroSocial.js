@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CadastroPage from './CadastroPage'
 export default class CadastroSocial extends Component {
   render() {
+
     const {response} = this.props.location.state;
     const {profileObj} = response
     return (
