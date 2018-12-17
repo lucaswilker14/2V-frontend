@@ -13,7 +13,7 @@
 $ npm install
 ```
 
-**Após a instalação das dependencias, inicie o servidor:**
+**Após a instalação das dependencias, inicie a aplicação:**
 
 ```sh
 $ npm start
