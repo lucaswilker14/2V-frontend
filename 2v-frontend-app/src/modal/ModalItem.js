@@ -47,7 +47,7 @@ export default class ModalItem extends Component {
                 <Button color="primary" onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
 
-                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item - {element._id}</h3></ModalHeader>
+                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item</h3></ModalHeader>
 
                     <ModalBody style={{overflow: 'hidden'}} >
                         <div>

@@ -15,6 +15,9 @@ import jwt from 'jsonwebtoken'
 import Google from './../socialLogin/GoogleLoginButton'
 import Facebook from './../socialLogin/FaceLoginButton'
 
+import { API_ROUTE } from '../env'
+
+
 export default class LoginPage extends Component {
 
     _isMounted = false;
@@ -46,13 +49,9 @@ export default class LoginPage extends Component {
         event.preventDefault();
     }
 
-    // onClickTwitter = () => {
-    //     console.log(this.child.returnToken());
-    // }    
-
-    setImage(image, repeat, size){
+    setImage(image, repeat, size) {
         var body = ReactDOM.findDOMNode(this).parentElement.parentElement
-        body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat +' ; background-size: ' + size + ' ;');
+        body.setAttribute('style', 'background-image: url(' + image + '); background-repeat: ' + repeat + ' ; background-size: ' + size + ' ;');
     }
 
     componentDidMount = () => {
@@ -70,7 +69,7 @@ export default class LoginPage extends Component {
 
         const request = {
             method: 'post',
-            url: 'http://localhost:3000/api/2V/login',
+            url: API_ROUTE + '/login',
             data: {
                 username: this.state.username,
                 password: this.state.password
@@ -90,9 +89,20 @@ export default class LoginPage extends Component {
 
                 localStorage.setItem('token', token);
                 localStorage.setItem('userId', userId);
-                this.props.history.push('/home');
+                const isAdmin = jwt.decode(localStorage.getItem('token'))
+                console.log(isAdmin.role);
+                isAdmin.role !== undefined ? this.props.history.push('/admin/home') : this.props.history.push('/home');
             }
         });
+    }
+
+    loginGoogle = (responseG) => {
+        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseG, isGoogle: true}});
+    } 
+
+    //dont work
+    loginFacebook = (responseF) => {
+        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseF, isGoogle: false}});
     }
 
     render() {
@@ -125,8 +135,8 @@ export default class LoginPage extends Component {
 
                                 <div className="row my-3 d-flex justify-content-center">
                                     <Facebook />
-                                    <Google onRef={ref => (this.child = ref)} />
-                                    <Button onClick={this.onClickTwitter} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
+                                    <Google loginGoogle={this.loginGoogle}/>
+                                    <Button disabled onClick={this.onClickTwitter} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
                                         <Fa icon="twitter" className="blue-text" />
                                     </Button>
                                 </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Fa } from "mdbreact";
+import { API_ROUTE } from '../env'
 
 
 export default class UserProfile extends Component {
@@ -32,7 +33,7 @@ export default class UserProfile extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: 'http://localhost:3000/api/2V/user/' + userId
+            url: API_ROUTE + '/user/' + userId
         }
 
         axios(request).then((response) => {
@@ -53,6 +54,4 @@ export default class UserProfile extends Component {
         )
     }
 }
-
-// <img className="mx-auto d-block" src={image} style={{ maxHeight: "40%", borderRadius: "100px" }} alt="autoretrato"></img>
 
