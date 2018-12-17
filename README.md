@@ -19,3 +19,4 @@ $ npm install
 $ npm start
 ```
 
+*Alguns detalhes do sistema* [aqui](https://docs.google.com/document/d/1Dr0x9sGxgNnd-3iKyIDlr3O1xPzqN8uFo3v03a0AcFQ/edit?usp=sharing)
