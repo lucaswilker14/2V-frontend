@@ -14,7 +14,6 @@ import jwt from 'jsonwebtoken'
 
 import Google from './../socialLogin/GoogleLoginButton'
 import Facebook from './../socialLogin/FaceLoginButton'
-import {API_ROUTE_BASE} from '../env'
 
 import { API_ROUTE } from '../env'
 

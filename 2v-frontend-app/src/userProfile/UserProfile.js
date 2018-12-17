@@ -47,10 +47,7 @@ export default class UserProfile extends Component {
     }
 
     render() {        
-        const estilo = {
-            maxHeight: "40%", 
-            borderRadius: "100px"
-        }
+    
         return (
             <div>
                 <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>

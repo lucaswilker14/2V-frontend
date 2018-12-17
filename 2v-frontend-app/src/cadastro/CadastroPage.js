@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 'mdbreact';
 import { Link } from 'react-router-dom'
-import {API_ROUTE_BASE} from '../env'
 
 import image from '../images/2v.jpg'
 import { API_ROUTE } from '../env'
