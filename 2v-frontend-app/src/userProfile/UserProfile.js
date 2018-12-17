@@ -55,5 +55,3 @@ export default class UserProfile extends Component {
     }
 }
 
-// <img className="mx-auto d-block" src={image} style={{ maxHeight: "40%", borderRadius: "100px" }} alt="autoretrato"></img>
-

@@ -136,7 +136,7 @@ export default class LoginPage extends Component {
                                 <div className="row my-3 d-flex justify-content-center">
                                     <Facebook />
                                     <Google loginGoogle={this.loginGoogle}/>
-                                    <Button onClick={this.onClickTwitter} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
+                                    <Button disabled onClick={this.onClickTwitter} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
                                         <Fa icon="twitter" className="blue-text" />
                                     </Button>
                                 </div>

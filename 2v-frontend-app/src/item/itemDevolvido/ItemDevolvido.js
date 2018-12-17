@@ -27,7 +27,7 @@ export default class ItemDevolvido extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: 'http://localhost:3000/api/2V/user/' + userId + '/returnedItems'
+            url: API_ROUTE + '/user/' + userId + '/returnedItems'
         }
 
         axios(request).then((response) => {

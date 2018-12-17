@@ -28,6 +28,7 @@ const PrivateRouteAdmin = ({ component: Component, ...rest }) => {
         isAuthenticated() && isAdmin() ? <Component {...props} /> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
     )} />
 }
+
 class App extends Component {
 
     render() {

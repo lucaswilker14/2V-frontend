@@ -73,11 +73,10 @@ export default class CadastroPage extends Component {
         }
 
         axios(request).then((response) => {
-            console.log(response);
             toast.success(response.data.message);
+            toast.success('Faça Login para continuar');
         }).catch((err) => {
-            console.log(err);
-            toast.error('Impossível Cadastrar!')
+            toast.error('Error: Impossível Cadastrar!')
         });
     }
 

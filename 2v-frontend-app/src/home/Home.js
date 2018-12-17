@@ -3,8 +3,6 @@ import './home.css'
 import '../loaders/loader.css'
 
 import { Route } from 'react-router-dom'
-// import { isAuthenticated, isAdmin } from '../auth/auth'
-
 
 import { Container } from "mdbreact";
 import styled from "styled-components";
@@ -42,13 +40,6 @@ export const AppContainer = styled.div`
   height: 100%;
   width: 100%;
 `;
-
-
-// const PrivateRouteAdmin = ({ component: Component, ...rest }) => {
-//     return <Route {...rest} render={props => (
-//         isAuthenticated() && isAdmin() ? <Component {...props} /> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-//     )} />
-// }
 
 
 export default class Home extends Component {
