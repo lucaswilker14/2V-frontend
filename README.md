@@ -13,7 +13,9 @@
 $ npm install
 ```
 
+
 **Navegue até a pasta interna 2v-frontend-app**
+
 
 **Após a instalação das dependencias, inicie a aplicação:**
 
