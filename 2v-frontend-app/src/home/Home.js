@@ -9,14 +9,15 @@ import styled from "styled-components";
 
 import NavBar from '../navbar/NavBarPage'
 import SideBar from '../sidebar/SideBar'
+
 //para a navbar
 import UserProfile from '../userProfile/UserProfile'
 import About from '../about/AboutPage'
 
 //para a sidebar
-import Iemprestado from '../item/ItemEmprestado';
-import Idevolvido from '../item/ItemDevolvido';
-// import MeusDados from '../meusdados/MeusDados';
+import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
+import Idevolvido from '../item/itemDevolvido/ItemDevolvido';
+import FormItem from '../item/itemEmprestado/formItem';
 
 const Navigation = styled.div`
   display: flex;
@@ -30,6 +31,7 @@ const Navigation = styled.div`
 export const Body = styled.div`
   width: 100vw;
   height: 100vh;
+  background-color: #f5f5f5
 `;
 
 
@@ -39,31 +41,33 @@ export const AppContainer = styled.div`
   width: 100%;
 `;
 
+
 export default class Home extends Component {
 
     constructor(props) {
         super(props)
 
-        this.state = {}
-        // this.logout = this.logout.bind(this);
+        this.state = {
+        }
     }
 
     render() {
         return (
             <div>
                 <Container fluid style={{ padding: "0%" }}>
-                    <NavBar />
+                    <NavBar isAdmin={false} color="aqua-gradient"/>
                 </Container>
 
                 <AppContainer>
                     <Navigation>
-                        <SideBar style={{ fontSize: "medium" }} />
+                        <SideBar isAdmin={false} style={{ fontSize: "medium" }} />
                     </Navigation>
                     <Body>
                         <Route exact path='/home' render={() => (<UserProfile />)} />
                         <Route path='/home/about' render={() => (<About />)} />
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
+                        <Route path='/home/registeritem' render={() => (<FormItem />)} />
                     </Body>
                 </AppContainer>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import image from '../images/EU_LINDO.jpg'
 import axios from 'axios'
+import { Fa } from "mdbreact";
+import { API_ROUTE } from '../env'
 
 
 export default class UserProfile extends Component {
@@ -32,17 +33,12 @@ export default class UserProfile extends Component {
         )
     }
 
-    // logout() {
-    //     this.props.history.push('/');
-    //     localStorage.clear();
-    // }
-
     listen() {
         var userId = localStorage.getItem('userId');
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: 'http://localhost:3000/api/2V/user/' + userId
+            url: API_ROUTE + '/user/' + userId
         }
 
         axios(request).then((response) => {
@@ -57,9 +53,9 @@ export default class UserProfile extends Component {
         }
         return (
             <div>
-                <div className="d-flex justify-content-around" style={{ margin: "100px" }}>
+                <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>
                     <ul>
-                        <img className="mx-auto d-block" src={image} style={estilo} alt="autoretrato"></img>
+                        <Fa style={{ fontSize: "17rem" }} icon="user-circle-o" />
                         {this.renderUser(this.state.userLogged)}
                     </ul>
                 </div>
@@ -67,3 +63,4 @@ export default class UserProfile extends Component {
         )
     }
 }
+

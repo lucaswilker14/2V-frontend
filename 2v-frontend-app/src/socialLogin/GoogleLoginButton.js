@@ -8,8 +8,6 @@ import { Button, Fa } from 'mdbreact';
 
 export default class SocialLogin extends Component {
 
-
-
     constructor(props) {
         super(props)
         this.state = {
@@ -18,26 +16,11 @@ export default class SocialLogin extends Component {
         }
     }
 
-    //na montagem do componente eu coloco dentro
-    //da instacia de props a referencia
-    componentDidMount() {
-        this.props.onRef(this)
-    }
-
-    //depois apago
-    componentWillUnmount() {
-        this.props.onRef(undefined)
-    }
-
-
     responseGoogle = response => {
         const state = Object.assign({}, this.state); //criando uma copia
         state['user'] = response.profileObj;
         this.setState(state);
-    }
-
-    returnToken = () => {
-        return this.state.user;
+        this.props.loginGoogle(response);
     }
 
     render() {
