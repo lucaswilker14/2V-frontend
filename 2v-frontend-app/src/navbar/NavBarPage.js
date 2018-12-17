@@ -9,8 +9,9 @@ class NavbarPage extends React.Component {
     toggleCollapse = this.setState({ isOpen: !this.state.isOpen });
 
     render() {
+        const {color, isAdmin} = this.props;
         return (
-            <Navbar style={{ margin: "auto", borderRadius: "0px" }} color="aqua-gradient" dark expand="md">
+            <Navbar style={{ margin: "auto", borderRadius: "0px" }} color={color} dark expand="md">
                 <NavbarBrand style={{ fontSize: "3rem" }}>
                     <strong className="white-text">2V   Vai-e-Volta</strong>
                 </NavbarBrand>
@@ -20,12 +21,16 @@ class NavbarPage extends React.Component {
                 <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
 
                     <NavbarNav right>
-                        <NavItem>
-                            <MDBTooltip tooltipContent="Sobre" placement="left" />
-                            <NavLink to="/home/about">
-                                <Fa style={{ fontSize: "2rem" }} icon="question-circle-o" />
-                            </NavLink>
-                        </NavItem>
+                        {isAdmin === false ?
+                            <NavItem>
+                                <MDBTooltip tooltipContent="Sobre" placement="left" />
+                                <NavLink to="/home/about">
+                                    <Fa style={{ fontSize: "2rem" }} icon="question-circle-o" />
+                                </NavLink>
+                            </NavItem>
+                            :   
+                            ''
+                        }
 
                         <NavItem>
                             <NavLink to="/">

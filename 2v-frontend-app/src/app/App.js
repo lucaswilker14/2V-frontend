@@ -14,7 +14,7 @@ import LoginPage from './../login/LoginPage'
 import Cadastro from './../cadastro/CadastroPage'
 import HomePage from './../home/HomeLoader'
 import NotFoundPage from '../notFound/NotFound'
-import AdminRoute from '../admin/Routes'
+import AdminRoute from '../admin/HomeAdmin'
 
 
 const PrivateRouteHome = ({ component: Component, ...rest }) => {
@@ -22,13 +22,11 @@ const PrivateRouteHome = ({ component: Component, ...rest }) => {
         isAuthenticated() ? <Component {...props}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }}/>
     )} />
 }
-
 const PrivateRouteAdmin = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={props => (
-        isAdmin() ? <Component {...props}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }}/>
+        isAuthenticated() && isAdmin() ? <Component {...props} /> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
     )} />
 }
-
 class App extends Component {
 
     render() {
@@ -39,7 +37,7 @@ class App extends Component {
                         <Route exact path='/' component={LoginPage} />
                         <Route path='/cadastro' component={Cadastro} />
                         <PrivateRouteHome path='/home' component={HomePage} />
-                        <PrivateRouteAdmin path='/admin' component={AdminRoute} />
+                        <PrivateRouteAdmin path='/admin/home' component={AdminRoute} />
                         <Route path='*' component={NotFoundPage} />
                     </Switch>
                 </Route>

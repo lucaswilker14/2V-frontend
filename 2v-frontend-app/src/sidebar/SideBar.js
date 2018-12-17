@@ -35,30 +35,41 @@ export default class SideBar extends Component {
         }
     }
 
-    isAdmin = () => {
-        let isAdmin = jwt.decode(localStorage.getItem('token')).role;
-        isAdmin === 'Admin' ? this.setState({ isAdmin: true }) : this.setState({ isAdmin: false });
-    }
+    // isAdmin = () => {
+    //     let isAdmin = jwt.decode(localStorage.getItem('token')).role;
+    //     isAdmin === 'Admin' ? this.setState({ isAdmin: true }) : this.setState({ isAdmin: false });
+    // }
 
-    componentWillMount = () => {
-        this.isAdmin();
-    }
+    // componentWillMount = () => {
+    //     this.isAdmin();
+    // }
 
     render() {
         return (
 
             <SideNav theme={theme} >
 
-                <Link to='/home'>
-                    <Nav id='userprofile' style={theme2}>
-                        <NavIcon style={{ paddingLeft: "20px" }}>
-                            <Fa style={{ fontSize: "1.75rem" }} icon="home" />
-                            <p style={Text}> Página Inicial </p>
-                        </NavIcon>
-                    </Nav>
-                </Link>
+                {!this.props.isAdmin ?
+                    <Link to='/home'>
+                        <Nav id='userprofile' style={theme2}>
+                            <NavIcon style={{ paddingLeft: "20px" }}>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="home" />
+                                <p style={Text}> Página Inicial </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                    :
+                    <Link to='/admin/home'>
+                        <Nav id='adminprofile' style={theme2}>
+                            <NavIcon style={{ paddingLeft: "20px" }}>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="home" />
+                                <p style={Text}> Página Inicial </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                }
 
-                {!this.state.isAdmin ?
+                {!this.props.isAdmin ?
                     <Link to='/home/iemprestados'>
                         <Nav id='emprestado' style={theme2}>
                             <NavIcon style={{ paddingLeft: "20px" }}>
@@ -68,7 +79,7 @@ export default class SideBar extends Component {
                         </Nav>
                     </Link>
                     :
-                    <Link to='/home/admin/users'>
+                    <Link to='/admin/home/users'>
                         <Nav id='emprestado' style={theme2}>
                             <NavIcon style={{ paddingLeft: "20px" }}>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="users" />
@@ -78,7 +89,7 @@ export default class SideBar extends Component {
                     </Link>
                 }
 
-                {!this.state.isAdmin ?
+                {!this.props.isAdmin ?
                     <Link to='/home/idevolvidos'>
                         <Nav style={theme2}>
                             <NavIcon>
@@ -88,7 +99,7 @@ export default class SideBar extends Component {
                         </Nav>
                     </Link>
                     :
-                    <Link to='/home/admin/criarAdmin'>
+                    <Link to='/admin/home/criarAdmin'>
                         <Nav style={theme2}>
                             <NavIcon>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="user-secret" />
@@ -99,17 +110,21 @@ export default class SideBar extends Component {
 
                 }
 
-                <Link to='/home/meusdados'>
-                    <Nav style={theme2}>
-                        <NavIcon>
-                            <Fa style={{ fontSize: "1.75rem" }} icon="database" />
-                            <p style={Text}>Meus Dados</p>
-                        </NavIcon>
-                    </Nav>
-                </Link>
+                {!this.props.isAdmin ?
+                    <Link to='/home/meusdados'>
+                        <Nav style={theme2}>
+                            <NavIcon>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="database" />
+                                <p style={Text}>Meus Dados</p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                    :
+                    ''
+                }
 
-                {this.state.isAdmin ?
-                    <Link to='/home/admin/systemDate'>
+                {this.props.isAdmin ?
+                    <Link to='/admin/home/systemDate'>
                         <Nav style={theme2}>
                             <NavIcon>
                                 <Fa style={{ fontSize: "1.75rem" }} icon="clock-o" />

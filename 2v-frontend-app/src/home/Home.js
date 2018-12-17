@@ -3,6 +3,8 @@ import './home.css'
 import '../loaders/loader.css'
 
 import { Route } from 'react-router-dom'
+// import { isAuthenticated, isAdmin } from '../auth/auth'
+
 
 import { Container } from "mdbreact";
 import styled from "styled-components";
@@ -18,7 +20,6 @@ import About from '../about/AboutPage'
 import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
 import Idevolvido from '../item/itemDevolvido/ItemDevolvido';
 import FormItem from '../item/itemEmprestado/formItem';
-import AdminRoute from '../admin/Routes'
 
 const Navigation = styled.div`
   display: flex;
@@ -42,6 +43,14 @@ export const AppContainer = styled.div`
   width: 100%;
 `;
 
+
+// const PrivateRouteAdmin = ({ component: Component, ...rest }) => {
+//     return <Route {...rest} render={props => (
+//         isAuthenticated() && isAdmin() ? <Component {...props} /> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+//     )} />
+// }
+
+
 export default class Home extends Component {
 
     constructor(props) {
@@ -55,12 +64,12 @@ export default class Home extends Component {
         return (
             <div>
                 <Container fluid style={{ padding: "0%" }}>
-                    <NavBar />
+                    <NavBar isAdmin={false} color="aqua-gradient"/>
                 </Container>
 
                 <AppContainer>
                     <Navigation>
-                        <SideBar style={{ fontSize: "medium" }} />
+                        <SideBar isAdmin={false} style={{ fontSize: "medium" }} />
                     </Navigation>
                     <Body>
                         <Route exact path='/home' render={() => (<UserProfile />)} />
@@ -68,7 +77,6 @@ export default class Home extends Component {
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
                         <Route path='/home/registeritem' render={() => (<FormItem />)} />
-                        <Route path='/home/admin' render={() => (<AdminRoute/>)}/>
                     </Body>
                 </AppContainer>
 

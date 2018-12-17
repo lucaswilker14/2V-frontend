@@ -90,7 +90,9 @@ export default class LoginPage extends Component {
 
                 localStorage.setItem('token', token);
                 localStorage.setItem('userId', userId);
-                this.props.history.push('/home');
+                const isAdmin = jwt.decode(localStorage.getItem('token'))
+                console.log(isAdmin.role);
+                isAdmin.role !== undefined ? this.props.history.push('/admin/home') : this.props.history.push('/home');
             }
         });
     }
