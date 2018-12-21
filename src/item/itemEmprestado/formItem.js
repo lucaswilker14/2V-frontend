@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Card, CardBody, Input, Button, toast, ToastContainer, Row, MDBCol } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, Row, MDBCol } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 import DatePicker from "react-datepicker";
@@ -89,10 +89,14 @@ export default class formItem extends Component {
 
 
         axios(request).then((response) => {
-            toast.success(response.data.message);
+            // toast.success(response.data.message);
+            alert(response.data.message);
+
         }).catch((err) => {
             console.log(err);
-            toast.error('Impossível Cadastrar Item!')
+            // toast.error('Impossível Cadastrar Item!')
+            alert('Impossível Cadastrar Item!')
+
         });
     }
 
@@ -204,24 +208,24 @@ export default class formItem extends Component {
                         </form>
                     </CardBody>
                 </Card>
-
-                <ToastContainer
-                    style={{ fontSize: "medium" }}
-                    position="top-right"
-                    autoClose={3000}
-                    hideProgressBar
-                    closeButton={false}
-                    newestOnTop={false}
-                    rtl={false}
-                    draggable={false}
-                    pauseOnHover={false}
-                >
-                </ToastContainer>
-
             </Container>
         )
     }
 }
+
+// <ToastContainer
+//                     style={{ fontSize: "medium" }}
+//                     position="top-right"
+//                     autoClose={3000}
+//                     hideProgressBar
+//                     closeButton={false}
+//                     newestOnTop={false}
+//                     rtl={false}
+//                     draggable={false}
+//                     pauseOnHover={false}
+//                 >
+//                 </ToastContainer>
+
 
 
 

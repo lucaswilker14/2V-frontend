@@ -14,10 +14,6 @@ export default class UserProfile extends Component {
             imageUrl: ''
         }
     }
-
-    componentWillMount = () => {
-      
-    }
     
     componentDidMount = () => {
         this.listen();

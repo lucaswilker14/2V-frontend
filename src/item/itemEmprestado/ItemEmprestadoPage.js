@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MDBBtn, MDBIcon, ToastContainer, toast } from "mdbreact";
+import { MDBBtn, MDBIcon } from "mdbreact";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -45,7 +45,8 @@ export default class ItemEmprestado extends Component {
 
 
         axios(request).then((response) => {
-            toast.success(response.data.message);
+            // toast.success(response.data.message);
+            alert(response.data.message);
         });
 
     }
@@ -61,7 +62,8 @@ export default class ItemEmprestado extends Component {
 
         axios(request).then((response) => {
             console.log(response.data);
-            toast.success(response.data);
+            // toast.success(response.data);
+            alert(response.data);
         });
     }
 
@@ -79,21 +81,21 @@ export default class ItemEmprestado extends Component {
                         <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                     </MDBBtn>
                 </Link>
-
-                <ToastContainer
-                    style={{ fontSize: "medium" }}
-                    position="top-right"
-                    autoClose={3000}
-                    hideProgressBar
-                    closeButton={false}
-                    newestOnTop={false}
-                    rtl={false}
-                    draggable={false}
-                    pauseOnHover={false}
-                >
-                </ToastContainer>
-
             </div>
         )
     }
 }
+
+
+// <ToastContainer
+// style={{ fontSize: "medium" }}
+// position="top-right"
+// autoClose={3000}
+// hideProgressBar
+// closeButton={false}
+// newestOnTop={false}
+// rtl={false}
+// draggable={false}
+// pauseOnHover={false}
+// >
+// </ToastContainer>
