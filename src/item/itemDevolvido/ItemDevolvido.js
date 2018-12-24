@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CardItem from '../cards/Cards'
 
-// import { ToastContainer, toast } from "mdbreact";
+import { ToastContainer, toast } from "mdbreact";
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { API_ROUTE } from '../../env'
@@ -45,9 +45,9 @@ export default class ItemDevolvido extends Component {
 
 
         axios(request).then((response) => {
-            // toast.warn(response.data.message);
-            alert(response.data.message);
-            
+            toast.info(response.data.message);
+        }).catch((err) => {
+            toast.error('Impossível deletar Item');
         });
     }
 
@@ -59,22 +59,20 @@ export default class ItemDevolvido extends Component {
                 <div style={{ paddingLeft: '30px' }}>
                     <CardItem isBorrewed={false} deleteItem={this.deleteItem} items={this.state.returnedItems} />
                 </div>
+
+                <ToastContainer
+                    style={{ fontSize: "medium" }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    closeButton={false}
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
             </div>
         )
     }
-
 }
-
-
-// <ToastContainer
-// style={{ fontSize: "medium" }}
-// position="top-right"
-// autoClose={3000}
-// hideProgressBar
-// closeButton={false}
-// newestOnTop={false}
-// rtl={false}
-// draggable={false}
-// pauseOnHover={false}
-// >
-// </ToastContainer>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MDBBtn, MDBIcon } from "mdbreact";
+import { MDBBtn, MDBIcon, ToastContainer, toast } from "mdbreact";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -40,13 +40,14 @@ export default class ItemEmprestado extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'put',
-            url: API_ROUTE +'/user/' + userId + '/item/' + itemId
+            url: API_ROUTE + '/user/' + userId + '/item/' + itemId
         }
 
 
         axios(request).then((response) => {
-            // toast.success(response.data.message);
-            alert(response.data.message);
+            toast.success(response.data.message);
+        }).catch((err) => {
+            toast.error('Erro ao devolver item!');
         });
 
     }
@@ -62,8 +63,9 @@ export default class ItemEmprestado extends Component {
 
         axios(request).then((response) => {
             console.log(response.data);
-            // toast.success(response.data);
-            alert(response.data);
+            toast.success(response.data);
+        }).catch((err) => {
+            toast.error('Erro ao enviar o email.');
         });
     }
 
@@ -81,21 +83,20 @@ export default class ItemEmprestado extends Component {
                         <MDBIcon style={{ fontSize: "2rem" }} icon="plus" className="mr-1" />
                     </MDBBtn>
                 </Link>
+
+                <ToastContainer
+                    style={{ fontSize: "medium" }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    closeButton={false}
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
             </div>
         )
     }
 }
-
-
-// <ToastContainer
-// style={{ fontSize: "medium" }}
-// position="top-right"
-// autoClose={3000}
-// hideProgressBar
-// closeButton={false}
-// newestOnTop={false}
-// rtl={false}
-// draggable={false}
-// pauseOnHover={false}
-// >
-// </ToastContainer>

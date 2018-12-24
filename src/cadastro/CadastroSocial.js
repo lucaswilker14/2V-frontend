@@ -4,9 +4,7 @@ export default class CadastroSocial extends Component {
     render() {
 
         const { response } = this.props.location.state;
-        console.log(response);
         const { profileObj } = response
-        console.log(profileObj)
         return (
             <CadastroPage
                 history={this.props.history}

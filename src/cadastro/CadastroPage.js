@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Container, Card, CardBody, Input, Button } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 import image from '../images/2v.jpg'
@@ -20,7 +20,7 @@ export default class CadastroPage extends Component {
             phone: '',
             email: '',
             password: '',
-            image:''
+            image: ''
         }
 
 
@@ -36,11 +36,11 @@ export default class CadastroPage extends Component {
     componentDidMount = () => {
         this.setImage(image, 'no-repeat', 'cover');
         localStorage.clear();
-        const {firstName, secondName, email, imageGoogle, isToast} = this.props;
-        this.setState({firstName: firstName, secondName: secondName, email: email, image: imageGoogle});
+        const { firstName, secondName, email, imageGoogle, isToast } = this.props;
+        this.setState({ firstName: firstName, secondName: secondName, email: email, image: imageGoogle });
         // if(isToast) toast.warn('Preencha alguns dados antes de  continuar');
-        if(isToast) alert('Preencha alguns dados antes de  continuar');
-        
+        if (isToast) alert('Preencha alguns dados antes de  continuar');
+
     }
 
     componentWillUnmount = () => {
@@ -77,12 +77,10 @@ export default class CadastroPage extends Component {
         }
 
         axios(request).then((response) => {
-            alert(response.data.message)
-            // toast.success(response.data.message);
-            // toast.success('Faça Login para continuar');
+            toast.success(response.data.message);
+            toast.success('Faça Login para continuar');
         }).catch((err) => {
-            alert('Error: Impossível Cadastrar! Possivelmente o Usuario ja existe');
-            // toast.error('Error: Impossível Cadastrar!')
+            toast.error('Error: Impossível Cadastrar! Possivelmente o Usuario ja existe')
         });
     }
 
@@ -126,25 +124,21 @@ export default class CadastroPage extends Component {
                         </form>
                     </CardBody>
                 </Card>
+
+                <ToastContainer
+                    style={{ fontSize: "medium" }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    closeButton={false}
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
             </Container>
 
         )
     }
 }
-
-
-
-// <ToastContainer
-// style={{ fontSize: "medium" }}
-// position="top-right"
-// autoClose={3000}
-// hideProgressBar
-// closeButton={false}
-// newestOnTop={false}
-// rtl={false}
-// draggable={false}
-// pauseOnHover={false}
-// >
-// </ToastContainer>
-
-    // <Link to='/' style={{color: "white"}} >   </Link> 
