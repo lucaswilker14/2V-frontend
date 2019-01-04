@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Container, Card, CardBody, MDBInput, Button, toast, ToastContainer } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 import image from '../images/2v.jpg'
@@ -21,7 +21,9 @@ export default class CadastroPage extends Component {
             email: '',
             emailConfirm: '',
             password: '',
-            image: ''
+            passwordConfirm: '',
+            image: '',
+            isDisable: true
         }
 
 
@@ -38,10 +40,11 @@ export default class CadastroPage extends Component {
         this.setImage(image, 'no-repeat', 'cover');
         localStorage.clear();
         const { firstName, secondName, email, imageGoogle, isToast } = this.props;
-        this.setState({ firstName: firstName, secondName: secondName, email: email, image: imageGoogle });
+        if (imageGoogle !== undefined) {
+            this.setState({ firstName: firstName, secondName: secondName, email: email, image: imageGoogle });
+        }
         if (isToast) toast.warn('Preencha alguns dados antes de  continuar');
         // if (isToast) alert('Preencha alguns dados antes de  continuar');
-
     }
 
     componentWillUnmount = () => {
@@ -53,7 +56,22 @@ export default class CadastroPage extends Component {
         // const state = Object.assign({}, this.state); //criando uma copia
         // const campo = event.target.name;
         // state[campo] = event.target.value;
-        this.setState({ ...this.state, [event.target.name]: event.target.value })
+        this.setState({ ...this.state, [event.target.name]: event.target.value }, function () { this.formValidation() });
+    }
+
+    formValidation = () => {
+
+        const { firstName, secondName, phone, password, passwordConfirm } = this.state;
+
+        if (firstName.length > 1
+            && secondName.length > 1
+            && phone.length > 8
+            && password.length > 7 
+            && passwordConfirm.length > 7) {
+            this.setState({ isDisable: false })
+        } else {
+            this.setState({ isDisable: true })
+        }
     }
 
     handleSubmit(event) {
@@ -71,7 +89,8 @@ export default class CadastroPage extends Component {
     }
 
     checkPassword = () => {
-        if (this.state.password !== this.state.passwordConfirm) {
+        const { password, passwordConfirm } = this.state
+        if ( password !== passwordConfirm ) {
             toast.warn('Senhas diferentes. Cheque-os!')
         } else return true
     }
@@ -122,14 +141,11 @@ export default class CadastroPage extends Component {
 
                             <div className="grey-text">
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="firstName"
-                                        maxLength='15'
-                                        minlenght='2'
                                         value={this.state.firstName}
                                         onChange={this.handleChange}
                                         size="lg"
-                                        id="materialFormRegisterNameEx"
                                         label="Nome"
                                         icon="user"
                                         type="text"
@@ -140,7 +156,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="secondName"
                                         maxLength='15'
                                         minlenght='2'
@@ -157,7 +173,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="username"
                                         maxLength='10'
                                         minlenght='5'
@@ -174,7 +190,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="phone"
                                         maxLength='9'
                                         minlenght='9'
@@ -191,7 +207,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="email"
                                         value={this.state.email}
                                         onChange={this.handleChange}
@@ -205,7 +221,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="emailConfirm"
                                         value={this.state.emailConfirm}
                                         onChange={this.handleChange}
@@ -220,7 +236,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="password"
                                         maxLength='20'
                                         minlenght='8'
@@ -237,7 +253,7 @@ export default class CadastroPage extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <MDBInput
+                                    <Input
                                         name="passwordConfirm"
                                         maxLength='20' minlenght='8'
                                         value={this.state.passwordConfirm}
@@ -258,7 +274,7 @@ export default class CadastroPage extends Component {
                                 <Link to='/'>
                                     <Button outline color="info" size="lg"> Voltar </Button>
                                 </Link>
-                                <Button size="lg" gradient="aqua" type="Submit"> Cadastrar </Button>
+                                <Button disabled={this.state.isDisable} size="lg" gradient="aqua" type="Submit"> Cadastrar </Button>
                             </div>
                         </form>
                     </CardBody>
