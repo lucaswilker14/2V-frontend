@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './loginPage.css'
 import image from '../images/2v.jpg'
 
-import { Container, Card, CardBody, Input, Button, Fa } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, Fa, ToastContainer } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 // import Toast from '../alerts/Toast'
@@ -96,12 +96,12 @@ export default class LoginPage extends Component {
     }
 
     loginGoogle = (responseG) => {
-        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseG, isGoogle: true}});
-    } 
+        this.props.history.push({ pathname: '/cadastrosocial', state: { response: responseG, isGoogle: true } });
+    }
 
     //dont work
     loginFacebook = (responseF) => {
-        this.props.history.push({pathname: '/cadastrosocial', state: { response: responseF, isGoogle: false}});
+        this.props.history.push({ pathname: '/cadastrosocial', state: { response: responseF, isGoogle: false } });
     }
 
     render() {
@@ -134,7 +134,7 @@ export default class LoginPage extends Component {
 
                                 <div className="row my-3 d-flex justify-content-center">
                                     <Facebook />
-                                    <Google loginGoogle={this.loginGoogle}/>
+                                    <Google loginGoogle={this.loginGoogle} />
                                     <Button disabled onClick={this.onClickTwitter} size="lg" type="button" color="white" rounded className="mr-md-3 z-depth-1a">
                                         <Fa icon="twitter" className="blue-text" />
                                     </Button>
@@ -143,6 +143,19 @@ export default class LoginPage extends Component {
                         </CardBody>
                     </Card>
                 </section>
+
+                <ToastContainer
+                    style={{ fontSize: "medium" }}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar
+                    closeButton={false}
+                    newestOnTop={false}
+                    rtl={false}
+                    draggable={false}
+                    pauseOnHover={false}
+                >
+                </ToastContainer>
             </Container>
         );
 

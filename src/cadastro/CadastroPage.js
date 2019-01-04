@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 'mdbreact';
+import { Container, Card, CardBody, MDBInput, Button, toast, ToastContainer } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 import image from '../images/2v.jpg'
@@ -19,6 +19,7 @@ export default class CadastroPage extends Component {
             username: '',
             phone: '',
             email: '',
+            emailConfirm: '',
             password: '',
             image: ''
         }
@@ -38,8 +39,8 @@ export default class CadastroPage extends Component {
         localStorage.clear();
         const { firstName, secondName, email, imageGoogle, isToast } = this.props;
         this.setState({ firstName: firstName, secondName: secondName, email: email, image: imageGoogle });
-        // if(isToast) toast.warn('Preencha alguns dados antes de  continuar');
-        if (isToast) alert('Preencha alguns dados antes de  continuar');
+        if (isToast) toast.warn('Preencha alguns dados antes de  continuar');
+        // if (isToast) alert('Preencha alguns dados antes de  continuar');
 
     }
 
@@ -56,9 +57,23 @@ export default class CadastroPage extends Component {
     }
 
     handleSubmit(event) {
-        this.registerUser();
         event.preventDefault();
-        this.props.history.push('/');
+        if (this.checkEmail() && this.checkPassword()) {
+            this.registerUser();
+            this.props.history.push('/');
+        }
+    }
+
+    checkEmail = () => {
+        if (this.state.email !== this.state.emailConfirm) {
+            toast.warn('Emails diferentes. Cheque-os!')
+        } else return true
+    }
+
+    checkPassword = () => {
+        if (this.state.password !== this.state.passwordConfirm) {
+            toast.warn('Senhas diferentes. Cheque-os!')
+        } else return true
     }
 
     registerUser() {
@@ -106,20 +121,144 @@ export default class CadastroPage extends Component {
                             <p className="h2 text-center py-4"> Cadastro </p>
 
                             <div className="grey-text">
-                                <Input name="firstName" value={this.state.firstName} onChange={this.handleChange} size="lg" label="Nome" icon="user" group type="text" validate success="right" className="form-control" required />
-                                <Input name="secondName" value={this.state.secondName} onChange={this.handleChange} size="lg" label="Sobrenome" icon="user" group type="text" validate success="right" className="form-control" required />
-                                <Input name="username" value={this.state.username} onChange={this.handleChange} size="lg" label="Username" icon="user-plus" group type="text" validate success="right" className="form-control" required />
-                                <Input name="phone" value={this.state.phone} onChange={this.handleChange} size="lg" label="Telefone" icon="phone" group type="tel" validate success="right" className="form-control" required />
-                                <Input name="email" value={this.state.email} onChange={this.handleChange} size="lg" label="Email" icon="envelope" group type="email" validate success="right" className="form-control" required />
-                                <Input name="email2" size="lg" label="Confirme seu email" icon="exclamation-triangle" group type="text" validate success="right" className="form-control" required />
-                                <Input name="password" value={this.state.password} onChange={this.handleChange} size="lg" label="Senha" icon="lock" group type="password" validate className="form-control" required />
+                                <div>
+                                    <MDBInput
+                                        name="firstName"
+                                        maxLength='15'
+                                        minlenght='2'
+                                        value={this.state.firstName}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        id="materialFormRegisterNameEx"
+                                        label="Nome"
+                                        icon="user"
+                                        type="text"
+                                        group
+                                        validate
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="secondName"
+                                        maxLength='15'
+                                        minlenght='2'
+                                        value={this.state.secondName}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        label="Sobrenome"
+                                        icon="user"
+                                        group
+                                        validate
+                                        type="text"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="username"
+                                        maxLength='10'
+                                        minlenght='5'
+                                        value={this.state.username}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        label="Username"
+                                        icon="user-plus"
+                                        group
+                                        validate
+                                        type="text"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="phone"
+                                        maxLength='9'
+                                        minlenght='9'
+                                        value={this.state.phone}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        label="Telefone. Ex: 9999-9999"
+                                        icon="phone"
+                                        group
+                                        validate
+                                        type="tel"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="email"
+                                        value={this.state.email}
+                                        onChange={this.handleChange}
+                                        size="lg" label="Email"
+                                        icon="envelope"
+                                        group
+                                        validate
+                                        type="email"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="emailConfirm"
+                                        value={this.state.emailConfirm}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        label="Confirme seu email"
+                                        icon="exclamation-triangle"
+                                        group
+                                        validate
+                                        type="text"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="password"
+                                        maxLength='20'
+                                        minlenght='8'
+                                        value={this.state.password}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        label="Senha"
+                                        icon="lock"
+                                        group
+                                        validate
+                                        type="password"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <MDBInput
+                                        name="passwordConfirm"
+                                        maxLength='20' minlenght='8'
+                                        value={this.state.passwordConfirm}
+                                        onChange={this.handleChange}
+                                        size="lg"
+                                        label="Confirme sua senha"
+                                        icon="lock"
+                                        group
+                                        validate
+                                        type="password"
+                                        className="form-control"
+                                        required
+                                    />
+                                </div>
                             </div>
 
                             <div className="text-center py-4 mt-3">
-                                <Button color="second" size="lg">
-                                    <Link to='/' style={{ color: "blue" }}> Voltar </Link>
-                                </Button>
-                                <Button size="lg" color="cyan" type="Submit"> Cadastrar </Button>
+                                <Link to='/'>
+                                    <Button outline color="info" size="lg"> Voltar </Button>
+                                </Link>
+                                <Button size="lg" gradient="aqua" type="Submit"> Cadastrar </Button>
                             </div>
                         </form>
                     </CardBody>
