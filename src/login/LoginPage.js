@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './loginPage.css'
 import image from '../images/2v.jpg'
 
-import { Container, Card, CardBody, Input, Button, Fa, ToastContainer } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, Fa, ToastContainer, toast } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 // import Toast from '../alerts/Toast'
@@ -79,7 +79,7 @@ export default class LoginPage extends Component {
         axios(request).then((response) => {
             //aqui eu faço a autenticação com a response
             //mudo de tela se tudo estiver ok
-            if (response.data.status === 404) alert(response.data.message);
+            if (response.data.status === 404) toast.error(response.data.message);
             else {
                 var token = response.data.data.token;
                 var tokenDecode = jwt.decode(token);
