@@ -14,7 +14,7 @@ export default class UserProfile extends Component {
             imageUrl: ''
         }
     }
-
+    
     componentDidMount = () => {
         this.listen();
     }
@@ -42,7 +42,8 @@ export default class UserProfile extends Component {
         });
     }
 
-    render() {
+    render() {        
+    
         return (
             <div>
                 <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Card, CardBody, Input, Button, toast, ToastContainer, Row, MDBCol } from 'mdbreact';
+import { Container, Card, CardBody, Input, Button, Row, MDBCol, ToastContainer, toast } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
 import DatePicker from "react-datepicker";
@@ -90,6 +90,7 @@ export default class formItem extends Component {
 
         axios(request).then((response) => {
             toast.success(response.data.message);
+
         }).catch((err) => {
             console.log(err);
             toast.error('Impossível Cadastrar Item!')
@@ -217,11 +218,11 @@ export default class formItem extends Component {
                     pauseOnHover={false}
                 >
                 </ToastContainer>
-
             </Container>
         )
     }
 }
+
 
 
 

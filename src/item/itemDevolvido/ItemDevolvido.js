@@ -45,7 +45,9 @@ export default class ItemDevolvido extends Component {
 
 
         axios(request).then((response) => {
-            toast.warn(response.data.message);
+            toast.info(response.data.message);
+        }).catch((err) => {
+            toast.error('Impossível deletar Item');
         });
     }
 
@@ -57,7 +59,7 @@ export default class ItemDevolvido extends Component {
                 <div style={{ paddingLeft: '30px' }}>
                     <CardItem isBorrewed={false} deleteItem={this.deleteItem} items={this.state.returnedItems} />
                 </div>
-                
+
                 <ToastContainer
                     style={{ fontSize: "medium" }}
                     position="top-right"
@@ -73,5 +75,4 @@ export default class ItemDevolvido extends Component {
             </div>
         )
     }
-
 }
