@@ -9,7 +9,7 @@ export default class AboutPage extends Component {
                <br></br>
                <div class="d-flex flex-row">
                   <h3 class="mb-0">Desenvolvido por Lucas Wilker Moura Barbosa.</h3>
-                  <a class="mb-0" rel="noopener noreferrer" href='https://github.com/lucaswilker14' target="_blank"> Github </a>
+                  <a class="mb-0" style={{marginLeft: '7px'}} rel="noopener noreferrer" href='https://github.com/lucaswilker14' target="_blank"> Github </a>
                </div>
                <h3 class="mb-0">Graduando da Universidade Federal de Campina Grande (Campus I)</h3>
                <br></br>
