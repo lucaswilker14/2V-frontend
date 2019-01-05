@@ -44,7 +44,6 @@ export default class CadastroPage extends Component {
             this.setState({ firstName: firstName, secondName: secondName, email: email, image: imageGoogle });
         }
         if (isToast) toast.warn('Preencha alguns dados antes de  continuar');
-        // if (isToast) alert('Preencha alguns dados antes de  continuar');
     }
 
     componentWillUnmount = () => {
