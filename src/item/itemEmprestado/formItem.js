@@ -62,31 +62,47 @@ export default class formItem extends Component {
 
     registerItem() {
 
+        const {
+            name
+            , color
+            , brand
+            , loan_date
+            , return_date
+            , obs
+            , nameuser
+            , email
+            , phone
+            , street
+            , number
+            , neighborhood
+            , cep
+            , state
+            , city } = this.state
+
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'post',
             url: API_ROUTE + '/user/' + localStorage.getItem('userId'),
             data: {
-                name: this.state.name,
-                color: this.state.color,
-                brand: this.state.brand,
-                loan_date: this.state.loan_date,
-                return_date: this.state.return_date,
-                obs: this.state.obs,
+                name: name,
+                color: color,
+                brand: brand,
+                loan_date: loan_date,
+                return_date: return_date,
+                obs: obs,
                 user_adress: {
-                    name: this.state.nameuser,
-                    email: this.state.email,
-                    phone: this.state.phone,
-                    street: this.state.street,
-                    number: this.state.number,
-                    neighborhood: this.state.neighborhood,
-                    cep: this.state.cep,
-                    state: this.state.state,
-                    city: this.state.city
+                    name: nameuser,
+                    email: email,
+                    phone: phone,
+                    street: street,
+                    number: number,
+                    neighborhood: neighborhood,
+                    cep: cep,
+                    state: state,
+                    city: city
                 }
             }
         }
-
 
         axios(request).then((response) => {
             toast.success(response.data.message);
@@ -126,7 +142,7 @@ export default class formItem extends Component {
                                         <Input name="color" value={this.state.color} onChange={this.handleChange} size="lg" hint="Digite a cor do objeto (opcional)" group type="text" success="right" className="form-control" />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="brand" value={this.state.brand} onChange={this.handleChange} size="lg" hint="Digite a marca do objeto (opcional)" group type="text" success="right" className="form-control" />
+                                        <Input maxLength='30' minLength='2' name="brand" value={this.state.brand} onChange={this.handleChange} size="lg" hint="Digite a marca do objeto (opcional)" group type="text" success="right" className="form-control" />
                                     </MDBCol>
                                 </Row>
 
@@ -150,47 +166,49 @@ export default class formItem extends Component {
                                         />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="obs" value={this.state.obs} onChange={this.handleChange} size="lg" hint="Observação" group type="text" validate success="right" className="form-control" />
+                                        <Input name="obs" rows="2" value={this.state.obs} onChange={this.handleChange} size="lg" hint="Observação" group type="textarea" validate success="right" className="form-control" />
                                     </MDBCol>
                                 </Row>
 
                                 <br></br>
 
-                                <h4> Dados do Emprestante </h4>
+                                <blockquote class="blockquote bq-info">
+                                    <h2 class="bq-title"> Dados do Emprestante </h2>
+                                </blockquote>
 
                                 <Row>
                                     <MDBCol size="4">
-                                        <Input name="nameuser" value={this.state.nameuser} onChange={this.handleChange} size="lg" hint="Nome" group type="text" validate success="right" className="form-control" required />
+                                        <Input name="nameuser" value={this.state.nameuser} onChange={this.handleChange} size="lg" label="Nome" group type="text" validate success="right" className="form-control" required />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="email" value={this.state.email} onChange={this.handleChange} size="lg" hint="Email" group type="email" validate success="right" className="form-control" required />
+                                        <Input name="email" value={this.state.email} onChange={this.handleChange} size="lg" label="Email" group type="email" validate success="right" className="form-control" required />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="phone" value={this.state.phone} onChange={this.handleChange} size="lg" hint="Telefone" group type="tel" validate success="right" className="form-control" required />
+                                        <Input name="phone" value={this.state.phone} onChange={this.handleChange} size="lg" label="Telefone Ex: 9999-9999" group type="tel" validate success="right" className="form-control" required />
                                     </MDBCol>
                                 </Row>
 
                                 <Row>
                                     <MDBCol size="4">
-                                        <Input name="street" value={this.state.street} onChange={this.handleChange} size="lg" hint="Rua" group type="text" validate success="right" className="form-control" />
+                                        <Input name="street" value={this.state.street} onChange={this.handleChange} size="lg" label="Rua" group type="text" validate success="right" className="form-control" />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="number" value={this.state.number} onChange={this.handleChange} size="lg" hint="Numero" group type="text" validate success="right" className="form-control" />
+                                        <Input name="number" value={this.state.number} onChange={this.handleChange} size="lg" label="Nº" group type="text" validate success="right" className="form-control" />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="neighborhood" value={this.state.neighborhood} onChange={this.handleChange} size="lg" hint="Bairro" group type="text" validate success="right" className="form-control" />
+                                        <Input name="neighborhood" value={this.state.neighborhood} onChange={this.handleChange} size="lg" label="Bairro" group type="text" validate success="right" className="form-control" />
                                     </MDBCol>
                                 </Row>
 
                                 <Row>
                                     <MDBCol size="4">
-                                        <Input name="cep" value={this.state.cep} onChange={this.handleChange} size="lg" hint="CEP" group type="text" validate success="right" className="form-control" />
+                                        <Input name="cep" value={this.state.cep} onChange={this.handleChange} size="lg" label="CEP" group type="text" validate success="right" className="form-control" />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="state" value={this.state.state} onChange={this.handleChange} size="lg" hint="Estado" group type="text" validate success="right" className="form-control" required />
+                                        <Input name="state" value={this.state.state} onChange={this.handleChange} size="lg" label="Estado" group type="text" validate success="right" className="form-control" required />
                                     </MDBCol>
                                     <MDBCol size="4">
-                                        <Input name="city" value={this.state.city} onChange={this.handleChange} size="lg" hint="Cidade" group type="text" validate success="right" className="form-control" required />
+                                        <Input name="city" value={this.state.city} onChange={this.handleChange} size="lg" label="Cidade" group type="text" validate success="right" className="form-control" required />
                                     </MDBCol>
                                 </Row>
 
@@ -198,9 +216,9 @@ export default class formItem extends Component {
 
                             <div className="text-center">
                                 <Link to='/home/iemprestados' style={{ color: "blue" }}>
-                                    <Button size="lg" color="second"> Cancelar </Button>
+                                    <Button size="lg" outline color="info"> Cancelar </Button>
                                 </Link>
-                                <Button size="lg" color="cyan" type="Submit"> Cadastrar </Button>
+                                <Button size="lg" gradient="aqua" type="Submit"> Cadastrar </Button>
                             </div>
                         </form>
                     </CardBody>
