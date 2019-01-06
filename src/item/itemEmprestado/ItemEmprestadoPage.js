@@ -70,6 +70,7 @@ export default class ItemEmprestado extends Component {
     }
 
     render() {
+        console.log(this.state.items);
         return (
             <div>
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
