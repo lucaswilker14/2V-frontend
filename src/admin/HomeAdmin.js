@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 import '../loaders/loader.css'
 
 import { Route } from 'react-router-dom'
-// import { isAuthenticated, isAdmin } from '../auth/auth'
-
 
 import { Container } from "mdbreact";
 import styled from "styled-components";
