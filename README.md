@@ -1,33 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 2V
 
-## Available Scripts
+**APP WEB** desenvolvido na disciplina **Projeto 3**
 
-In the project directory, you can run:
+**Objetivo**: Comumente, esquecemos coisas que emprestamos a parentes, amigos, colegas, troca de favores entre empresas e etc. Assim, o **2V** tem como função de lembrar ao usúario de forma simples o objeto no qual foi esquecido no momento, podendo ser lembrado ao emprestante através de email ou por solicitação pessoal através dos dados fornecidos.
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+*Aplicação no Firebase* [aqui](https://app-2v-react.firebaseapp.com)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+E lembre-se: O que **V**ai, **V**olta! :)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*Processo de Instalação Local*
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Instalação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Instale as dependencias e as dev dependencias:**
 
-### `npm run eject`
+```sh
+$ npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Após a instalação das dependencias, inicie o servidor:**
 
-## Learn More
+```sh
+$ npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Para rodar o ambiente de teste:**
+
+*-Testes de Unidade* 
+
+```sh
+$ npm run test-unit
+```
+
+*-Testes de Integração* 
+
+```sh
+$ npm run test-integration
+```
