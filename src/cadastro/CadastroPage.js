@@ -4,7 +4,7 @@ import { Container, Card, CardBody, Input, Button, toast, ToastContainer } from 
 import { Link } from 'react-router-dom'
 
 import image from '../images/2v.jpg'
-import { API_ROUTE } from '../env'
+import { API_ROUTE_HEROKU } from '../env'
 
 import axios from 'axios'
 
@@ -97,7 +97,7 @@ export default class CadastroPage extends Component {
     registerUser() {
         const request = {
             method: 'post',
-            url: API_ROUTE + '/user',
+            url: API_ROUTE_HEROKU + '/user',
             data: {
                 firstName: this.state.firstName,
                 secondName: this.state.secondName,

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import CardItem from '../cards/Cards'
-import { API_ROUTE } from '../../env'
+import { API_ROUTE_HEROKU } from '../../env'
 
 
 export default class ItemEmprestado extends Component {
@@ -27,7 +27,7 @@ export default class ItemEmprestado extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: API_ROUTE + '/user/' + userId + '/items'
+            url: API_ROUTE_HEROKU + '/user/' + userId + '/items'
         }
 
         axios(request).then((response) => {
@@ -40,7 +40,7 @@ export default class ItemEmprestado extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'put',
-            url: API_ROUTE + '/user/' + userId + '/item/' + itemId
+            url: API_ROUTE_HEROKU + '/user/' + userId + '/item/' + itemId
         }
 
 
@@ -57,7 +57,7 @@ export default class ItemEmprestado extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: API_ROUTE + '/user/' + userId + '/item/' + itemId
+            url: API_ROUTE_HEROKU + '/user/' + userId + '/item/' + itemId
         }
 
 

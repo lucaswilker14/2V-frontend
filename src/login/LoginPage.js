@@ -15,7 +15,7 @@ import jwt from 'jsonwebtoken'
 import Google from './../socialLogin/GoogleLoginButton'
 import Facebook from './../socialLogin/FaceLoginButton'
 
-import { API_ROUTE } from '../env'
+import { API_ROUTE_HEROKU } from '../env'
 
 
 export default class LoginPage extends Component {
@@ -69,7 +69,7 @@ export default class LoginPage extends Component {
 
         const request = {
             method: 'post',
-            url: API_ROUTE + '/login',
+            url: API_ROUTE_HEROKU + '/login',
             data: {
                 username: this.state.username,
                 password: this.state.password

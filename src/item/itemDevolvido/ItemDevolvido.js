@@ -4,7 +4,7 @@ import CardItem from '../cards/Cards'
 import { ToastContainer, toast } from "mdbreact";
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { API_ROUTE } from '../../env'
+import { API_ROUTE_HEROKU } from '../../env'
 
 
 export default class ItemDevolvido extends Component {
@@ -27,7 +27,7 @@ export default class ItemDevolvido extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'get',
-            url: API_ROUTE + '/user/' + userId + '/returnedItems'
+            url: API_ROUTE_HEROKU + '/user/' + userId + '/returnedItems'
         }
 
         axios(request).then((response) => {
@@ -40,7 +40,7 @@ export default class ItemDevolvido extends Component {
         const request = {
             headers: { 'x-access-token': localStorage.getItem('token') },
             method: 'delete',
-            url: API_ROUTE + '/user/' + userId + '/item/' + itemId
+            url: API_ROUTE_HEROKU + '/user/' + userId + '/item/' + itemId
         }
 
 
