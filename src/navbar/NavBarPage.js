@@ -12,12 +12,12 @@ class NavbarPage extends React.Component {
     }
     
 
-    // toggleCollapse = this.setState({ isOpen: !this.state.isOpen });
-
     render() {
-        const {color, isAdmin} = this.props;
+        let {color, isAdmin} = this.props;
+        if(isAdmin) color=null;
+        
         return (
-            <Navbar style={{ margin: "auto", borderRadius: "0px" }} color={color} dark expand="md">
+            <Navbar style={{ background: "linear-gradient(to right, #b71c1c, #4a148c)", margin: "auto", borderRadius: "0px" }} color={color} dark expand="md">
                 <NavbarBrand style={{ fontSize: "3rem" }}>
                     <strong className="white-text">2V   Vai-e-Volta</strong>
                 </NavbarBrand>

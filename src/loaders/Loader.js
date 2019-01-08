@@ -27,8 +27,6 @@ export default class Loader extends Component {
         div.setAttribute('style', 'height: null');
     }
     
-    
-
     render() {
         return (
             <div ref={'group'} className="group">

@@ -77,8 +77,6 @@ export default class LoginPage extends Component {
         }
 
         axios(request).then((response) => {
-            //aqui eu faço a autenticação com a response
-            //mudo de tela se tudo estiver ok
             if (response.data.status === 404) toast.error(response.data.message);
             else {
                 var token = response.data.data.token;
@@ -89,8 +87,9 @@ export default class LoginPage extends Component {
 
                 localStorage.setItem('token', token);
                 localStorage.setItem('userId', userId);
-                const isAdmin = jwt.decode(localStorage.getItem('token'))
-                isAdmin.role !== undefined ? this.props.history.push('/admin/home') : this.props.history.push('/home');
+                // const isAdmin = jwt.decode(localStorage.getItem('token'))
+                // isAdmin.role !== undefined ? this.props.history.push('/admin/home') : this.props.history.push('/home');
+                this.props.history.push('/home');
             }
         });
     }
