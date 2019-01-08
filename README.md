@@ -9,6 +9,7 @@
 
 E lembre-se: O que **V**ai, **V**olta! :)
 
+---
 
 *Processo de Instalação Local*
 
