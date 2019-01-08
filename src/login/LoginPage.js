@@ -77,8 +77,6 @@ export default class LoginPage extends Component {
         }
 
         axios(request).then((response) => {
-            //aqui eu faço a autenticação com a response
-            //mudo de tela se tudo estiver ok
             if (response.data.status === 404) toast.error(response.data.message);
             else {
                 var token = response.data.data.token;

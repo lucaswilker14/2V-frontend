@@ -37,12 +37,16 @@ export const AppContainer = styled.div`
 
 
 export default class HomeAdmin extends Component {
-  
+
+    componentDidMount = () => {
+        this.props.history.push('/admin/home');
+    }
+    
     render() {
         return (
             <div>
                 <Container fluid style={{ padding: "0%" }}>
-                    <NavBar isAdmin={true} color="peach-gradient"/>
+                    <NavBar isAdmin={true} />
                 </Container>
 
                 <AppContainer>

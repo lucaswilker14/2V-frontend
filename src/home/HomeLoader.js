@@ -21,16 +21,14 @@ export default class HomeLoader extends Component {
     }
 
     componentDidMount = () => {
-        setTimeout(() => this.setState({ isLoading: false }), 4000);
+        setTimeout(() => this.setState({ isLoading: false }), 5000);
     }
 
     render() {
         const { role } = jwt.decode(localStorage.getItem('token'))
-        console.log(role);
 
         let loader;
         let page;
-
 
         if (role === undefined) {
             loader = <LoaderPage />
