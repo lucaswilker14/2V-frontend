@@ -44,7 +44,7 @@ export default class ModalItem extends Component {
         const { element, isBorrewed } = this.props
         return (
             <Container>
-                <Button color="primary" onClick={() => this.toggle()} >Ver info</Button>
+                <Button gradient="aqua" style={{marginLeft: '40px'}} onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
 
                     <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item</h3></ModalHeader>
@@ -78,12 +78,12 @@ export default class ModalItem extends Component {
 
                     {isBorrewed ?
                         <ModalFooter>
-                            <Button size="lg" color="secondary" onClick={() => this.sendEmailItemSelected(element._id)}>Pedir Item</Button>
-                            <Button size="lg" color="primary" onClick={() => this.returnedItemSelected(element._id)} >Marcar como devolvido</Button>
+                            <Button size="lg" color="mdb-color green accent-3" onClick={() => this.sendEmailItemSelected(element._id)}>Pedir Item</Button>
+                            <Button size="lg" color="mdb-color light-blue lighten-1" onClick={() => this.returnedItemSelected(element._id)} >Devolveu Item</Button>
                         </ModalFooter>
                         :
                         <ModalFooter>
-                            <Button size="lg" color="secondary" onClick={() => this.deleteItem(element._id)}>Excluir Item</Button>
+                            <Button size="lg" color="mdb-color red accent-4" onClick={() => this.deleteItem(element._id)}>Excluir Item</Button>
                         </ModalFooter>
                     }
                 </Modal>
