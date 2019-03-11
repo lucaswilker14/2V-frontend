@@ -69,6 +69,20 @@ export default class SideBar extends Component {
                 }
 
                 {!this.props.isAdmin ?
+                    <Link to='/home/registeritem'>
+                        <Nav id='register' style={theme2}>
+                            <NavIcon style={{ paddingLeft: "20px" }}>
+                                <Fa style={{ fontSize: "1.75rem" }} icon="plus" />
+                                <p style={Text}> Cadastrar Item </p>
+                            </NavIcon>
+                        </Nav>
+                    </Link>
+                    :
+                    <div></div>
+                }
+
+
+                {!this.props.isAdmin ?
                     <Link to='/home/iemprestados'>
                         <Nav id='emprestado' style={theme2}>
                             <NavIcon style={{ paddingLeft: "20px" }}>
