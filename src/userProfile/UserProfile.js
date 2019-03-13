@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { API_ROUTE } from '../env'
 
-import { Row } from 'mdbreact';
-
-
-import Bar from '../charts/BarChart'
-import Line from '../charts/LineChart'
-import Doughnut from '../charts/DoughnutChart'
+import { Fa } from 'mdbreact';
 
 export default class UserProfile extends Component {
 
@@ -49,16 +44,21 @@ export default class UserProfile extends Component {
 
    render() {
       return (
-         <div>
-            <div>
-               <Bar />
-            </div>
+         <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>
+            <ul>
 
-            <Row>
-               <Line/>
-               <Doughnut/>
-            </Row>
+               {this.state.imageUrl.includes('não definida') ?
+                  <Fa style={{ fontSize: "17rem" }} icon="user-circle-o" />
+                  :
+                  <img className="mx-auto d-block"
+                     src={this.state.imageUrl}
+                     style={{ height: '17rem', borderRadius: "100px" }}
+                     alt="autoretrato"
+                  />
+               }
 
+               {this.renderUser(this.state.userLogged)}
+            </ul>
          </div>
       )
    }
@@ -66,19 +66,4 @@ export default class UserProfile extends Component {
 
 
 
-        // <div className="d-flex justify-content-around" style={{ margin: "100px", textAlign: 'center' }}>
-        // <ul>
 
-        //     {this.state.imageUrl.includes('não definida') ?
-        //         <Fa style={{ fontSize: "17rem" }} icon="user-circle-o" />
-        //         :
-        //         <img className="mx-auto d-block"
-        //             src={this.state.imageUrl}
-        //             style={{ height: '17rem', borderRadius: "100px" }}
-        //             alt="autoretrato"
-        //         />
-        //     }
-
-        //     {this.renderUser(this.state.userLogged)}
-        // </ul>
-        // </div>

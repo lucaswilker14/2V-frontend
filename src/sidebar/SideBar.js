@@ -78,7 +78,7 @@ export default class SideBar extends Component {
                         </Nav>
                     </Link>
                     :
-                    <div></div>
+                    ''
                 }
 
 
