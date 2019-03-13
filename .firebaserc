@@ -1,5 +1,8 @@
 {
   "projects": {
-    "y": "app-2v-react"
+    "y": "app-2v-react",
+    "default": "app-2v-react",
+    "app-2v-staging": "app-2v-react",
+    "app-2v-react-staging": "app-2v-react"
   }
 }
