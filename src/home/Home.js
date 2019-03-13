@@ -11,6 +11,7 @@ import NavBar from '../navbar/NavBarPage'
 import SideBar from '../sidebar/SideBar'
 
 //para a navbar
+import DashBoard from '../dashboard/Dashboard'
 import UserProfile from '../userProfile/UserProfile'
 import About from '../about/AboutPage'
 
@@ -31,7 +32,6 @@ const Navigation = styled.div`
 export const Body = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #f5f5f5
 `;
 
 
@@ -63,11 +63,12 @@ export default class Home extends Component {
                         <SideBar isAdmin={false} style={{ fontSize: "medium" }} />
                     </Navigation>
                     <Body>
-                        <Route exact path='/home' render={() => (<UserProfile />)} />
+                        <Route exact path='/home' render={() => (<DashBoard />)} />
                         <Route path='/home/about' render={() => (<About />)} />
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
                         <Route path='/home/registeritem' render={() => (<FormItem />)} />
+                        <Route path='/home/meusdados' render={() => (<UserProfile />)} />
                     </Body>
                 </AppContainer>
 
