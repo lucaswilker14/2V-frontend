@@ -6,3 +6,10 @@
     margin-left: auto; 
     margin-right: auto;
 }
+
+.lineChart {
+    width: 450px;
+    margin-left: 80px; 
+    margin-top: 50px;
+    border: 2px solid gray;
+}

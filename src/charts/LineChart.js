@@ -7,7 +7,7 @@ export default class LineChart extends Component {
     constructor(props) {
         super(props)
 
-        var datas = Array.from({length: 13}, () => Math.floor(Math.random() * 31));
+        var datas = Array.from({ length: 13 }, () => Math.floor(Math.random() * 31));
 
         this.state = {
             dataLine: {
@@ -29,14 +29,11 @@ export default class LineChart extends Component {
 
     render() {
         return (
-            <div style={{ width: '450px', marginLeft: '80px', marginTop: '50px', border: '2px solid gray' }}>
-                <Line
-                    data={this.state.dataLine}
-                    width={50}
-                    height={250}
-                    options={{ maintainAspectRatio: false }}
-                />
-            </div>
+            <Line
+                data={this.state.dataLine}
+                height={20}
+                options={{ maintainAspectRatio: false }}
+            />
         )
     }
 }
