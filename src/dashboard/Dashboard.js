@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-import { MDBContainer, MDBRow } from 'mdbreact';
+import { Row } from 'mdbreact';
 import Bar from '../charts/BarChart'
 import Line from '../charts/LineChart'
 import Doughnut from '../charts/DoughnutChart'
@@ -13,16 +13,19 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div>
-                <div className='container barchart'>
+                <div className='container barChart z-depth-2'>
                     <Bar />
                 </div>
 
-                <MDBContainer>
-                    <MDBRow>
+                <Row>
+                    <div className='container lineChart z-depth-2'>
                         <Line />
+                    </div>
+                    <div className='container doughnutChart z-depth-2'>
                         <Doughnut />
-                    </MDBRow>
-                </MDBContainer>
+                    </div>
+                </Row>
+
             </div>
         )
     }

@@ -1,15 +1,25 @@
-.barchart {
-    border: 2px solid gray; 
+.barChart {
+    border: 1px solid gray; 
     margin-top: 30px;
     max-width: 1500px;
     margin-bottom: auto; 
     margin-left: auto; 
     margin-right: auto;
+    background: white
 }
 
 .lineChart {
-    width: 450px;
-    margin-left: 80px; 
+    max-width: 700px;
+    margin-left: 75px; 
     margin-top: 50px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    background: white
+}
+
+.doughnutChart {
+    max-width: 750px;
+    margin-left: -20px;  
+    margin-top: 50px; 
+    border: 1px solid gray;
+    background: white
 }

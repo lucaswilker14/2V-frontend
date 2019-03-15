@@ -126,6 +126,7 @@ export default class CadastroPage extends Component {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
+            
         }
 
         const estilo2 = {

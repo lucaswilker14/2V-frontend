@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Container, Card, CardBody, Input, Button, Row, MDBCol, ToastContainer, toast } from 'mdbreact';
 import { Link } from 'react-router-dom'
 
+import './formItem.css'
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -123,13 +125,10 @@ export default class formItem extends Component {
             alignItems: "center",
         }
 
-        const estilo2 = {
-            width: "900px"
-        }
         return (
             <Container style={estilo}>
-                <Card style={estilo2}>
-                    <CardBody>
+                <Card className='estilo2'>
+                    <CardBody className='z-depth-3'>
                         <form onSubmit={this.handleSubmit} encType="multipart/form-data">
                             <p className="h2 text-center py-4"> Cadastro de Objeto </p>
                             <div className="grey-text">

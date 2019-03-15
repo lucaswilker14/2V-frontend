@@ -31,7 +31,7 @@ export default class LineChart extends Component {
         return (
             <Line
                 data={this.state.dataLine}
-                height={20}
+                height={370}
                 options={{ maintainAspectRatio: false }}
             />
         )
