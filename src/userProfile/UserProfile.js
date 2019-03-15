@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { API_ROUTE } from '../env'
-
-import { Fa } from 'mdbreact';
+import { Fa } from "mdbreact";
+import { API_ROUTE_HEROKU } from '../env'
 
 export default class UserProfile extends Component {
 
@@ -34,7 +33,7 @@ export default class UserProfile extends Component {
       const request = {
          headers: { 'x-access-token': localStorage.getItem('token') },
          method: 'get',
-         url: API_ROUTE + '/user/' + userId
+         url: API_ROUTE_HEROKU + '/user/' + userId
       }
 
       axios(request).then((response) => {
