@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2';
 
+import './charts_layout.css'
+
 
 export default class BarChart extends Component {
 
     constructor(props) {
         super(props)
 
-        var datas = Array.from({length: 13}, () => Math.floor(Math.random() * 31));
+        var datas = Array.from({ length: 13 }, () => Math.floor(Math.random() * 31));
 
         this.state = {
             chartData: {
@@ -56,27 +58,26 @@ export default class BarChart extends Component {
 
     render() {
         return (
-            <div style={{ border: '2px solid gray', width: '1000px', height: '300px', marginTop: '30px', marginBottom: 'auto', marginLeft: 'auto', marginRight: 'auto' }}>
-                <Bar
-                    data={this.state.chartData}
-                    options={{
-                        maintainAspectRatio: false,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }],
-    
-                            xAxes: [{
-                                gridLines: {
-                                    offsetGridLines: true
-                                }
-                            }]
-                        }
-                    }}
-                />
-            </div>
+            <Bar
+                data={this.state.chartData}
+                height={350}
+                options={{
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+
+                        xAxes: [{
+                            gridLines: {
+                                offsetGridLines: true
+                            }
+                        }]
+                    }
+                }}
+            />
         )
     }
 }
