@@ -7,12 +7,14 @@ export default class LineChart extends Component {
     constructor(props) {
         super(props)
 
+        var datas = Array.from({length: 13}, () => Math.floor(Math.random() * 31));
+
         this.state = {
             dataLine: {
                 labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                 datasets: [{
                     label: '# de Emprestimos (mockados)',
-                    data: [12, 19, 16, 5, 10, 13, 7, 6, 4, 8, 17, 10],
+                    data: datas,
                     backgroundColor: 'transparent',
                     borderColor: '#84ffff',
                     borderDashOffset: 6,

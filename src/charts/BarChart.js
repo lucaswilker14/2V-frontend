@@ -7,12 +7,14 @@ export default class BarChart extends Component {
     constructor(props) {
         super(props)
 
+        var datas = Array.from({length: 13}, () => Math.floor(Math.random() * 31));
+
         this.state = {
             chartData: {
                 labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
                 datasets: [{
                     label: '# de Emprestimos (mockados)',
-                    data: [12, 19, 16, 5, 10, 3, 7, 20, 4, 8, 17, 10],
+                    data: datas,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
