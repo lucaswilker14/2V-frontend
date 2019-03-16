@@ -13,15 +13,15 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div>
-                <div className='container barChart z-depth-2' id='barChart'>
+                <div className='container barChart z-depth-2'>
                     <Bar />
                 </div>
 
                 <Row>
-                    <div className='container lineChart z-depth-2' id='lineChart'>
+                    <div className='container lineChart z-depth-2'>
                         <Line />
                     </div>
-                    <div className='container doughnutChart z-depth-2' id='doughnutChart'>
+                    <div className='container doughnutChart z-depth-2' >
                         <Doughnut />
                     </div>
                 </Row>

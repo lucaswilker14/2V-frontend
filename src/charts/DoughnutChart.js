@@ -14,7 +14,7 @@ export default class DoughnutChart extends Component {
                 labels: ["Esperança", "Campina Grande", "João Pessoa", "Souza"],
                 datasets: [{
                     data: datas,
-                    labels: '# de acessos',
+                    label: 'Cidades',
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.4)',
                         'rgba(54, 162, 235, 0.4)',
