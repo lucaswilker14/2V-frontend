@@ -13,7 +13,7 @@ export default class LineChart extends Component {
             dataLine: {
                 labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                 datasets: [{
-                    label: '# de Emprestimos (mockados)',
+                    label: '# de Devoluções (mockados)',
                     data: datas,
                     backgroundColor: 'transparent',
                     borderColor: '#84ffff',
@@ -25,7 +25,6 @@ export default class LineChart extends Component {
             }
         }
     }
-
 
     render() {
         return (
