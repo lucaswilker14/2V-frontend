@@ -1,0 +1,17 @@
+@media only screen and (max-width: 1370px) {
+    .bodyScreen {
+        position: relative;
+        height: 105vh;
+        width: 100%;
+        background: #eceff1;
+    }
+
+    .sideScreen {
+        display: flex;
+        width: 220px;
+        flex-shrink: 0;
+        background: linear-gradient(to bottom right, #2096ff, #05ffa3)!important;
+        height: 105vh;
+        border-right: 1px solid rgba(0, 0, 0, 0.125);
+    }
+}

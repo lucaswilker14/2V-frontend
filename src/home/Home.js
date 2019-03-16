@@ -20,14 +20,14 @@ import Iemprestado from '../item/itemEmprestado/ItemEmprestadoPage';
 import Idevolvido from '../item/itemDevolvido/ItemDevolvido';
 import FormItem from '../item/itemEmprestado/formItem';
 
-const Navigation = styled.div`
-  display: flex;
-  width: 220px;
-  flex-shrink: 0;
-  background: linear-gradient(to bottom right, #2096ff, #05ffa3)!important;
-  height: 100vh;
-  border-right: 1px solid rgba(0, 0, 0, 0.125);
-`;
+// const Navigation = styled.div`
+//   display: flex;
+//   width: 220px;
+//   flex-shrink: 0;
+//   background: linear-gradient(to bottom right, #2096ff, #05ffa3)!important;
+//   height: 100vh;
+//   border-right: 1px solid rgba(0, 0, 0, 0.125);
+// `;
 
 export const Body = styled.div`
   width: 100vw;
@@ -56,21 +56,21 @@ export default class Home extends Component {
         return (
             <div>
                 <Container fluid style={{ padding: "0%" }}>
-                    <NavBar isAdmin={false} color="aqua-gradient"/>
+                    <NavBar isAdmin={false} color="aqua-gradient" />
                 </Container>
 
                 <AppContainer>
-                    <Navigation>
+                    <div className='sideScreen'>
                         <SideBar isAdmin={false} style={{ fontSize: "medium" }} />
-                    </Navigation>
-                    <Body>
+                    </div>
+                    <div className='bodyScreen'>
                         <Route exact path='/home' render={() => (<DashBoard />)} />
                         <Route path='/home/about' render={() => (<About />)} />
                         <Route path='/home/iemprestados' render={() => (<Iemprestado />)} />
                         <Route path='/home/idevolvidos' render={() => (<Idevolvido />)} />
                         <Route path='/home/registeritem' render={() => (<FormItem />)} />
                         <Route path='/home/meusdados' render={() => (<UserProfile />)} />
-                    </Body>
+                    </div>
                 </AppContainer>
 
             </div>
