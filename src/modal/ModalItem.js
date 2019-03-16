@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Row, MDBCol } from 'mdbreact';
 
 export default class ModalItem extends Component {
@@ -17,6 +18,7 @@ export default class ModalItem extends Component {
             modal: !this.state.modal
         });
     }
+
 
     formatDate = (date) => {
         let a = date.substr(0, 10);
@@ -44,12 +46,14 @@ export default class ModalItem extends Component {
         const { element, isBorrewed } = this.props
         return (
             <Container>
-                <Button gradient="aqua" style={{marginLeft: '40px'}} onClick={() => this.toggle()} >Ver info</Button>
+                <Button gradient="aqua" style={{ marginLeft: '40px' }} onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
 
-                    <ModalHeader toggle={() => this.toggle()}> <h3>Informações do Item</h3></ModalHeader>
+                    <ModalHeader toggle={() => this.toggle()}>
+                        Informações do Item
+                    </ModalHeader>
 
-                    <ModalBody style={{overflow: 'hidden'}} >
+                    <ModalBody style={{ overflow: 'hidden' }} >
                         <div>
                             <Row>
                                 <MDBCol>

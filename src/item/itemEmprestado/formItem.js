@@ -171,8 +171,8 @@ export default class formItem extends Component {
 
                                 <br></br>
 
-                                <blockquote class="blockquote bq-info">
-                                    <h2 class="bq-title"> Dados do Emprestante </h2>
+                                <blockquote className="blockquote bq-info">
+                                    <h2 className="bq-title"> Dados do Emprestante </h2>
                                 </blockquote>
 
                                 <Row>
