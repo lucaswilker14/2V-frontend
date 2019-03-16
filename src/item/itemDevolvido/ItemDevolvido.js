@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "mdbreact";
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { API_ROUTE_HEROKU } from '../../env'
+// import { API_ROUTE_LOCAL } from '../../env'
 
 
 export default class ItemDevolvido extends Component {
@@ -31,8 +32,11 @@ export default class ItemDevolvido extends Component {
         }
 
         axios(request).then((response) => {
+
             this.setState({ returnedItems: response.data.data })
-        });
+        }).catch((err) => {
+            this.setState({returnedItems: 0})
+        }) ;;
     }
 
     deleteItem = (itemId) => {
@@ -45,7 +49,9 @@ export default class ItemDevolvido extends Component {
 
 
         axios(request).then((response) => {
-            toast.info(response.data.message);
+            this.getItems();
+            if(this.state.returnedItems.length > 0) toast.success(response.data.message);
+            else toast.error('Erro ao devolver item!');
         }).catch((err) => {
             toast.error('Impossível deletar Item');
         });
@@ -56,9 +62,15 @@ export default class ItemDevolvido extends Component {
             <div>
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS DEVOLVIDOS </h1>
 
-                <div style={{ paddingLeft: '30px' }}>
-                    <CardItem isBorrewed={false} deleteItem={this.deleteItem} items={this.state.returnedItems} />
-                </div>
+
+                {this.state.returnedItems.length > 0 ? 
+                    <div style={{ paddingLeft: '30px' }}>
+                        <CardItem isBorrewed={false} deleteItem={this.deleteItem} items={this.state.returnedItems} />
+                    </div>
+                    :
+                    <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item! </h1>                    
+                }
+
 
                 <ToastContainer
                     style={{ fontSize: "medium" }}

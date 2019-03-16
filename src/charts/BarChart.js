@@ -1,32 +1,36 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2';
 
+import './charts_layout.css'
+
 
 export default class BarChart extends Component {
 
     constructor(props) {
         super(props)
 
+        var datas = Array.from({ length: 13 }, () => Math.floor(Math.random() * 31));
+
         this.state = {
             chartData: {
                 labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
                 datasets: [{
                     label: '# de Emprestimos (mockados)',
-                    data: [12, 19, 16, 5, 10, 3, 7, 20, 4, 8, 17, 10],
+                    data: datas,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(54, 162, 235, 0.2)'
+                        'rgba(255, 99, 132, 0.4)',
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(255, 206, 86, 0.4)',
+                        'rgba(75, 192, 192, 0.4)',
+                        'rgba(153, 102, 255, 0.4)',
+                        'rgba(255, 159, 64, 0.4)',
+                        'rgba(255, 99, 132, 0.4)',
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(255, 206, 86, 0.4)',
+                        'rgba(255, 99, 132, 0.4)',
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(255, 206, 86, 0.4)',
+                        'rgba(54, 162, 235, 0.4)'
                     ],
                     borderColor: [
                         'rgba(255,99,132,1)',
@@ -51,30 +55,28 @@ export default class BarChart extends Component {
         }
     }
 
-
     render() {
         return (
-            <div style={{ border: '2px solid gray', width: '1000px', height: '300px', marginTop: '30px', marginBottom: 'auto', marginLeft: 'auto', marginRight: 'auto' }}>
-                <Bar
-                    data={this.state.chartData}
-                    options={{
-                        maintainAspectRatio: false,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }],
-    
-                            xAxes: [{
-                                gridLines: {
-                                    offsetGridLines: true
-                                }
-                            }]
-                        }
-                    }}
-                />
-            </div>
+            <Bar
+                data={this.state.chartData}
+                height={350}
+                options={{
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+
+                        xAxes: [{
+                            gridLines: {
+                                offsetGridLines: true
+                            }
+                        }]
+                    }
+                }}
+            />
         )
     }
 }

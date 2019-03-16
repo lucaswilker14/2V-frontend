@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import CardItem from '../cards/Cards'
 import { API_ROUTE_HEROKU } from '../../env'
+// import { API_ROUTE_LOCAL } from '../../env'
 
 
 export default class ItemEmprestado extends Component {
@@ -30,9 +31,12 @@ export default class ItemEmprestado extends Component {
             url: API_ROUTE_HEROKU + '/user/' + userId + '/items'
         }
 
+
         axios(request).then((response) => {
             this.setState({ items: response.data.data })
-        });
+        }).catch((err) => {
+            this.setState({items: 0})
+        }) ;
     }
 
     returnItem = (itemId) => {
@@ -45,7 +49,9 @@ export default class ItemEmprestado extends Component {
 
 
         axios(request).then((response) => {
-            toast.success(response.data.message);
+            this.getItems();
+            if(this.state.items.length > 0) toast.success(response.data.message);
+            else toast.error('Erro ao devolver item!'); 
         }).catch((err) => {
             toast.error('Erro ao devolver item!');
         });
@@ -62,7 +68,6 @@ export default class ItemEmprestado extends Component {
 
 
         axios(request).then((response) => {
-            console.log(response.data);
             toast.success(response.data);
         }).catch((err) => {
             toast.error('Erro ao enviar o email.');
@@ -70,14 +75,21 @@ export default class ItemEmprestado extends Component {
     }
 
     render() {
-        console.log(this.state.items);
         return (
             <div>
                 <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
 
-                <div style={{ paddingLeft: '30px' }}>
-                    <CardItem isBorrewed={true} sendEmail={this.sendEmail} returnedItem={this.returnItem} items={this.state.items} />
-                </div>
+                {this.state.items.length > 0 ?
+                    <div style={{ paddingLeft: '30px' }}>
+                        <CardItem isBorrewed={true}
+                            sendEmail={this.sendEmail}
+                            returnedItem={this.returnItem}
+                            items={this.state.items}
+                        />
+                    </div>
+                    :
+                    <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item! </h1>
+                }
 
                 <ToastContainer
                     style={{ fontSize: "medium" }}

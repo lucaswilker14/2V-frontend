@@ -4,6 +4,13 @@ import Modal from '../../modal/ModalItem'
 
 export default class Cards extends Component {
 
+
+    constructor(props) {
+      super(props)
+      this.state = {}
+    }
+    
+
     formatDate = (date) => {
         let a = date.substr(0, 10);
         let b = a.split('-');
@@ -20,7 +27,7 @@ export default class Cards extends Component {
                     <CardBody>
                         <CardTitle>{element.name + ' ' + element.brand}</CardTitle>
                         <CardText>{'Emprestante:' + element.user_adress.name + '. \nData de empréstimo:  ' + this.formatDate(element.loan_date)}</CardText>
-                        <Modal isBorrewed={isBorrewed} deleteItem={deleteItem} sendEmail={sendEmail} returnedItem={returnedItem} element={element}> Ver </Modal>
+                        <Modal key={i} isBorrewed={isBorrewed} deleteItem={deleteItem} sendEmail={sendEmail} returnedItem={returnedItem} element={element}> Ver </Modal>
                     </CardBody>
                 </Card>
             </Col>
@@ -28,9 +35,8 @@ export default class Cards extends Component {
     }
 
     render() {
-        const { items } = this.props;
         return (
-            items.length > 0 ? <Row>{this.createCardsCol()}</Row> : <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item! </h1>
+            <Row>{this.createCardsCol()}</Row>
         )
     }
 }

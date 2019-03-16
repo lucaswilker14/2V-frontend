@@ -7,26 +7,24 @@ export default class DoughnutChart extends Component {
     constructor(props) {
         super(props)
 
+        var datas = Array.from({ length: 4 }, () => Math.floor(Math.random() * 31));
+
         this.state = {
             dataDoughnut: {
-                labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
+                labels: ["Esperança", "Campina Grande", "João Pessoa", "Souza"],
                 datasets: [{
-                    data: [12, 19, 3, 5, 10, 3],
+                    data: datas,
+                    label: 'Cidades',
                     backgroundColor: [
-                        '#ef5350',
-                        '#2196f3',
-                        '#eeff41',
-                        'rgba(75, 192, 192, 0.2)',
-                        '#00e5ff',
-                        '#ffff00'
+                        'rgba(255, 99, 132, 0.4)',
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(255, 206, 86, 0.4)',
                     ],
                     borderColor: [
                         'rgba(255,99,132,1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -34,17 +32,13 @@ export default class DoughnutChart extends Component {
         }
     }
 
-
     render() {
         return (
-            <div style={{ width: '500px', marginLeft: '50px', marginTop: '50px', border: '2px solid gray' }}>
-                <Doughnut
-                    data={this.state.dataDoughnut}
-                    width={50}
-                    height={200}
-                    options={{ maintainAspectRatio: false }}
-                />
-            </div>
+            <Doughnut
+                data={this.state.dataDoughnut}
+                height={200}
+                options={{ maintainAspectRatio: false }}
+            />
         )
     }
 }
