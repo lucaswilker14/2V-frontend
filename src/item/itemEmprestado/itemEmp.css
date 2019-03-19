@@ -1,0 +1,13 @@
+.itemEmp {
+    padding-left: 60px;
+}
+
+.txtH1 {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 1370px) {
+    .itemEmp {
+        padding-left: 30px;
+    }
+}

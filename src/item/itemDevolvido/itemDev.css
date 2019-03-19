@@ -1,0 +1,13 @@
+.itemDev {
+    padding-left: 60px;
+}
+
+.txtH2 {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 1370px) {
+    .itemDev {
+        padding-left: 30px;
+    }
+}

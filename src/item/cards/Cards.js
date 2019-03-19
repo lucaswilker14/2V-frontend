@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Card, CardBody, CardImage, CardTitle, CardText, Col, Row } from "mdbreact";
 import Modal from '../../modal/ModalItem'
 
+import './card.css'
+
 export default class Cards extends Component {
 
     formatDate = (date) => {
@@ -14,7 +16,7 @@ export default class Cards extends Component {
     createCardsCol = () => {
         const { items, returnedItem, isBorrewed, sendEmail, deleteItem } = this.props
         return items.map((element, i) =>
-            <Col size="6" style={{ maxWidth: "27rem", top: '10px' }} key={element._id}>
+            <Col size="6"  className='cardWidth' key={element._id}>
                 <Card key={i} style={{ marginTop: '30px', marginLeft: '30px' }}>
                     <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" waves />
                     <CardBody>

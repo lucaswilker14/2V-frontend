@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CardItem from '../cards/Cards'
 
+import './itemDev.css'
+
 import { ToastContainer, toast } from "mdbreact";
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -54,9 +56,9 @@ export default class ItemDevolvido extends Component {
     render() {
         return (
             <div>
-                <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS DEVOLVIDOS </h1>
+                <h1 className="text-center txtH2"> ITEMS DEVOLVIDOS </h1>
 
-                <div style={{ paddingLeft: '30px' }}>
+                <div className='itemDev'>
                     <CardItem isBorrewed={false} deleteItem={this.deleteItem} items={this.state.returnedItems} />
                 </div>
 

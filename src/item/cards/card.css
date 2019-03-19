@@ -1,0 +1,12 @@
+
+.cardWidth {
+    max-width: 30rem; 
+    top: 10px;
+}
+
+@media only screen and (max-width: 1370px) {
+    .cardWidth {
+        max-width: 27rem; 
+        top: 10px;
+    }
+}

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { ToastContainer, toast } from "mdbreact";
+
+import './itemEmp.css'
+
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -70,12 +73,11 @@ export default class ItemEmprestado extends Component {
     }
 
     render() {
-        console.log(this.state.items);
         return (
             <div>
-                <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
+                <h1 className="text-center txtH1"> ITEMS EMPRESTADOS </h1>
 
-                <div style={{ paddingLeft: '30px' }}>
+                <div className='itemEmp'>
                     <CardItem isBorrewed={true} sendEmail={this.sendEmail} returnedItem={this.returnItem} items={this.state.items} />
                 </div>
 
