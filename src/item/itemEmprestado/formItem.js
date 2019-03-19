@@ -130,7 +130,7 @@ export default class formItem extends Component {
                 <Card className='estilo2'>
                     <CardBody className='z-depth-3'>
                         <form onSubmit={this.handleSubmit} encType="multipart/form-data">
-                            <p className="h2 text-center py-4"> Cadastro de Objeto </p>
+                            <p className="h1 text-center py-4" style={{marginBottom: '50px'}}> Cadastro de Objeto </p>
                             <div className="grey-text">
 
                                 <Row>

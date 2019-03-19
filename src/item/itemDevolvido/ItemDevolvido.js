@@ -7,6 +7,8 @@ import axios from 'axios'
 import { API_ROUTE_HEROKU } from '../../env'
 // import { API_ROUTE_LOCAL } from '../../env'
 
+import './itemDev.css'
+
 
 export default class ItemDevolvido extends Component {
 
@@ -35,8 +37,8 @@ export default class ItemDevolvido extends Component {
 
             this.setState({ returnedItems: response.data.data })
         }).catch((err) => {
-            this.setState({returnedItems: 0})
-        }) ;;
+            this.setState({ returnedItems: 0 })
+        });;
     }
 
     deleteItem = (itemId) => {
@@ -50,7 +52,7 @@ export default class ItemDevolvido extends Component {
 
         axios(request).then((response) => {
             this.getItems();
-            if(this.state.returnedItems.length > 0) toast.success(response.data.message);
+            if (this.state.returnedItems.length > 0) toast.success(response.data.message);
             else toast.error('Erro ao devolver item!');
         }).catch((err) => {
             toast.error('Impossível deletar Item');
@@ -60,15 +62,15 @@ export default class ItemDevolvido extends Component {
     render() {
         return (
             <div>
-                <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS DEVOLVIDOS </h1>
+                <h1 className="text-center txt-h1"> ITEMS DEVOLVIDOS </h1>
 
 
-                {this.state.returnedItems.length > 0 ? 
-                    <div style={{ paddingLeft: '30px' }}>
+                {this.state.returnedItems.length > 0 ?
+                    <div className='card-padding'>
                         <CardItem isBorrewed={false} deleteItem={this.deleteItem} items={this.state.returnedItems} />
                     </div>
                     :
-                    <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item! </h1>                    
+                    <h1 className="text-center txt-h1" style={{ marginTop: "150px" }}> Nenhum item! </h1>
                 }
 
 

@@ -3,6 +3,8 @@ import { ToastContainer, toast } from "mdbreact";
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import './itemEmp.css'
+
 import CardItem from '../cards/Cards'
 import { API_ROUTE_HEROKU } from '../../env'
 // import { API_ROUTE_LOCAL } from '../../env'
@@ -77,10 +79,10 @@ export default class ItemEmprestado extends Component {
     render() {
         return (
             <div>
-                <h1 className="text-center" style={{ marginTop: "10px" }}> ITEMS EMPRESTADOS </h1>
+                <h1 className="text-center txt-h1"> ITEMS EMPRESTADOS </h1>
 
                 {this.state.items.length > 0 ?
-                    <div style={{ paddingLeft: '30px' }}>
+                    <div className='card-padding'>
                         <CardItem isBorrewed={true}
                             sendEmail={this.sendEmail}
                             returnedItem={this.returnItem}
@@ -88,7 +90,7 @@ export default class ItemEmprestado extends Component {
                         />
                     </div>
                     :
-                    <h1 className="text-center" style={{ marginTop: "150px" }}> Nenhum item! </h1>
+                    <h1 className="text-center txt-h1" style={{ marginTop: "150px" }}> Nenhum item! </h1>
                 }
 
                 <ToastContainer

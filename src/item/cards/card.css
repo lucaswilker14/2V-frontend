@@ -1,0 +1,11 @@
+@media only screen and (max-width: 1370px) {
+    .card-col {
+        max-width: 27rem; 
+        top: 10px;
+    }
+}
+
+.card-col {
+    max-width: 35rem; 
+    top: 10px;
+}

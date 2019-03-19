@@ -1,4 +1,12 @@
 .estilo2 {
-    width: 900px;
+    width: 1200px;
     border: 1px solid gray;
+    top: -70px
+}
+
+@media only screen and (max-width: 1370px) {
+    .estilo2 {
+        width: 900px;
+        border: 1px solid gray;
+    }   
 }
