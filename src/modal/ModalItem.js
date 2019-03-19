@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Row, MDBCol } from 'mdbreact';
 
+import './modal.css'
+
 export default class ModalItem extends Component {
 
     constructor(props) {
@@ -46,7 +48,7 @@ export default class ModalItem extends Component {
         const { element, isBorrewed } = this.props
         return (
             <Container>
-                <Button gradient="aqua" style={{ marginLeft: '40px' }} onClick={() => this.toggle()} >Ver info</Button>
+                <Button gradient="aqua" className='modal-left' onClick={() => this.toggle()} >Ver info</Button>
                 <Modal fade={false} isOpen={this.state.modal} toggle={() => this.toggle()} centered>
 
                     <ModalHeader toggle={() => this.toggle()}>

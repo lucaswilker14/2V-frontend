@@ -1,0 +1,10 @@
+.modal-left{
+    margin-left: 80px;
+}
+
+@media only screen and (max-width: 1370px) {
+    .modal-left{
+        margin-left: 50px;
+    }
+       
+}
